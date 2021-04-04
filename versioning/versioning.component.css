@@ -1,0 +1,22 @@
+.container
+{
+  margin-top: 20px;
+}
+
+td, th {
+  border-width: 2px 2px 2px 2px;
+   /* border: 2px solid black;*/
+   border-color: black;
+    text-align: center;
+    padding: 8px;
+  }
+table thead th {
+  border-bottom: 2px solid #000;
+}
+tr:nth-child(even) {
+    /*background-color: black;*/
+  }
+
+  .check{
+    color:#00ff00;
+}

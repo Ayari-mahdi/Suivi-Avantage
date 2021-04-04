@@ -1,0 +1,65 @@
+.container{
+  margin-top: 20px;
+}
+.headertab{
+  border-width: 2px 2px 2px 2px;
+  border-color: black;
+  
+
+}
+form div{
+  width: 250px;
+  margin:auto;
+}
+mat-drawer-container{
+min-height: 400px;
+
+}
+
+form div input,select{
+  background-color:  #34495e;
+  color: white;
+}
+
+form button{
+  margin-left: 70%;
+  margin-top: 10%;
+
+}
+.cross {
+    color: red;
+
+}
+.check{
+    color:#00ff00;
+}
+form{
+    
+    padding-bottom: 15px;
+   
+}
+.select-table
+{
+margin: 20px;
+display: block;
+}
+.select-table button {
+    margin-bottom: 10px;
+    
+}
+.badge{
+  border-radius: 50px;
+  background: red;
+  height: 20px;
+  top: 50%;
+  color: white;
+}
+
+
+  
+
+  
+ 
+  
+ 
+  

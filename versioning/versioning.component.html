@@ -1,0 +1,116 @@
+<div class="container">
+  <div  *ngIf="spin_versioning || spin_data_importation"  class="container loader-container1" >
+    <div  *ngIf="spin_versioning || spin_data_importation" class="loading">
+      <span>Loading...</span>
+    </div>  
+    <div  *ngIf="spin_versioning  || spin_data_importation" class="container loader-container">
+  
+    </div>
+    </div>
+
+    <input type="file" id="file" multiple 
+    (change)="getFileDetails($event)" 
+    style="margin: 8px;
+        padding: 8px 5px;
+        color: #333;
+        width: auto;
+        cursor: pointer;"
+> 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card bg-dark my-5">
+          <div class="card-body">
+            <h2 class="card-title text-center text-white py-3">Suivi Avantage</h2>
+            <ul class="text-center list-inline py-3">
+
+                <form (ngSubmit)="onSubmit()"  #userForm="ngForm">
+                  <li class="list-inline-item">     
+                    <div class="form-group">
+                       <label for="date_avantage"></label>
+                       <input type="text" [(ngModel)]="date_avantage1" 
+                        class="form-control" 
+                        id="date_avantage" 
+                        name="date_avantage" 
+                        placeholder="Entre date "
+                        required
+                        #date_avantage="ngModel">
+                                          
+                    </div>
+                  </li>
+                  <li class="list-inline-item">
+                    <div class="form-group">
+                       <label for="type_avantage"></label>
+                       <select type="text" [(ngModel)]="type_avantage1" 
+                        class="form-control" 
+                        id="type_avantage" 
+                        name="type_avantage" 
+                        placeholder="Entre type"
+                        required
+                        #type_avantage="ngModel">    
+                        <ng-container *ngFor="let types of aneti_avg ">
+                           <option value="{{types.code}}">{{ types.code}}</option>
+                        </ng-container>
+                       </select>     
+                    </div>
+                  </li>
+                     <li class="list-inline-item">
+                     <button type="submit"  [disabled]="!userForm.form.valid"  style="margin-bottom: 6px;" class="btn btn-info">import</button>
+                    </li>
+                </form>
+              </ul>        
+          </div>     
+   <!-- <div *ngIf="loaderService.isLoading" class="loder-container1">  
+   <mat-spinner style="top:50%;left: 50%;"></mat-spinner> 
+  
+  </div>-->
+    </div>
+    <!--<div *ngIf="loaderService.isLoading" class="loader-container1">  
+      <mat-spinner mode="indeterminate"></mat-spinner>   
+    </div>-->
+      <div>
+        <table class="table table-bordered table-striped">
+          <thead class="thead"  >
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">Agent</th>
+              <th scope="col">Type Contrat</th>       
+              <th scope="col">Import Locale</th>
+              <th scope="col">Date Import</th>    
+              <th scope="col">Creation Dossier</th>  
+              <th scope="col"> Action </th>
+            </tr>
+          </thead>
+          <tbody>    
+           <tr  *ngFor="let histotable  of historique_table ">
+              
+              <td>{{histotable.id}}</td>         
+              <td>{{histotable.agent}}</td>  
+              <td>{{histotable.type_contrat}}</td>  
+              <td>{{histotable.import_local}}</td>  
+              <td>{{histotable.date_import}}</td> 
+              <td>{{histotable.creation_dossier}}</td>  
+
+              
+            <ng-container *ngIf="histotable.boo_creation_dosser !== 1; then temp1; else temp2">
+            </ng-container>
+            <ng-template #temp1>
+              <td> <button  class="btn btn-success"> créer les dossiers avantage</button> </td>         
+              </ng-template> 
+            <ng-template #temp2>
+            <td> <span class="check"> &#10004; </span> </td>
+            </ng-template>
+
+             
+
+                <!--<td>
+                     <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
+                     <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
+                    </div>
+                  </td>       -->
+             </tr>   
+          </tbody>   
+        </table>
+    </div>
+      </div>
+    </div>
+</div>

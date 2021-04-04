@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body {
+	
+	font-family: 'Open Sans', sans-serif;
+	background: #2c3e50;
+	/*width: 950px;*/
+	/*width: 95%;*/
+	/*border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;*/
+	
+	margin-right: 20px;
+	/*margin: auto;*/
+	/*margin-top: 50px;*/
+}
+nav{
+	position:relative;
+	margin: 20px auto 0;
+	width: 650px;
+	height: 50px;
+	background: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+}
+nav a{
+	font-size: 15px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	text-align: center;
+    cursor: pointer;
+}
+nav .animation{
+	position: absolute;
+	height: 100%;
+	/* height: 5px; */
+	top: 0;
+	/* bottom: 0; */
+	z-index: 0;
+	background: #1abc9c;
+	border-radius: 8px;
+	transition: all .5s ease 0s;
+}
+nav .start-home{
+	width: 8px;
+	left: 0;
+}
+nav a:nth-child(1){
+	width: 100px;
+    color: white;
+}
+
+nav a:nth-child(1):hover~.animation{
+	width: 100px;
+	left: 0;
+  
+}
+nav a:active~.animation{
+    width: 100px;
+}
+
+nav a:nth-child(2){
+	width: 110px;
+    color: white;
+}
+nav a:nth-child(2):hover~.animation{
+	/*width:210px;*/
+    width: 110px;
+	left: 100px;
+}
+nav a:nth-child(3){
+	width: 140px;
+}
+nav a:nth-child(3):hover~.animation{
+	width: 140px;
+	left: 210px;
+}
+nav a:nth-child(4){
+	width: 100px;
+}
+nav a:nth-child(4):hover~.animation{
+	width: 100px;
+	left: 350px;
+}
+nav a:nth-child(5){
+	width: 100px;
+}
+nav a:nth-child(5):hover~.animation{
+	width: 100px;
+	left: 450px;
+}
+nav a:nth-child(6){
+    left: 380px;
+	width: 100px;
+   
+}
+nav a:nth-child(6):hover~.animation{
+	width: 100px;
+    left: 930px;
+	
+}
+
+
+
