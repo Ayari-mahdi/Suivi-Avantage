@@ -12,6 +12,7 @@ import { LoaderService } from '../loader/loader.service';
 export class VersioningComponent implements OnInit {
   aneti_avg:aneti_avg[];
   historique_table:ws_aneti_historique[];
+  
 date_avantage1: string;
 type_avantage1:string;
 spin_versioning = false;
@@ -20,7 +21,7 @@ spin_data_importation:boolean ;
     private _snackBar: MatSnackBar,
     private svkarama:KaramaService,
     public loaderService: LoaderService
-  ) { }
+  ) {}
 
 
 //************** */
@@ -28,14 +29,14 @@ spin_data_importation:boolean ;
     console.log(this.spin_data_importation);
     this.spin_versioning=true;
     console.log(this.spin_versioning)
-    console.log(this.loaderService.isLoading);
+   // console.log(this.loaderService.isLoading);
     this.svkarama.getaneti_avn().subscribe(
       (data) =>{  
                   this.spin_versioning =false;
                   console.log(this.spin_versioning)
                   this.aneti_avg=data;
                 },
-      (error)=>{ 
+      (error)=>{  
                   this.spin_versioning=false;
                   console.log(this.spin_versioning)
                   console.log(error)
@@ -55,18 +56,7 @@ spin_data_importation:boolean ;
     )
   }
 //*************** */
-getFileDetails (event) {
-  for (var i = 0; i < event.target.files.length; i++) { 
-    var name = event.target.files[i].name;
-    var type = event.target.files[i].type;
-    var size = event.target.files[i].size;
-    var modifiedDate = event.target.files[i].lastModifiedDate;
-    
-    console.log ('Name: ' + name + "\n" + 
-      'Type: ' + type + "\n" +
-      'Last-Modified-Date: ' + modifiedDate + "\n" +
-      'Size: ' + Math.round(size / 1024) + " KB");
-  }}
+
 
 onSubmit()
 { 

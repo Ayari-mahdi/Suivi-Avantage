@@ -1,4 +1,13 @@
 
+export class user{
+    username:string;
+    passwrod:string;
+    constructor(username='',password='')
+    {
+        this.username=username;
+        this.passwrod=password;
+    }
+}
 
 export class  regg{
     SITUATION_REGLEMENT :string;
@@ -131,4 +140,30 @@ export class ws_aneti_historique
         this.creation_dossier=creation_dosser;
         this.boo_creation_dossier=boo_creation_dosser;
     }
+}
+
+export class facturation
+ {
+    kar_numemp: number;
+    kar_matfisc: string;
+    Kar_raissos:string;
+    Kar_adr:string;
+    kar_matass:number;
+    Kar_cin:string;
+    kar_nomsal:string;
+    kar_prenomsal:string;
+    kar_anncontrat:number;
+    kar_datdeb:string;
+    kar_datfin:string;
+    kar_dtreelprscnss:string;
+    kar_ann:number;
+    kar_trim:number;
+    car_saldec:number;
+    kar_prsmntemp:number;
+    kar_prsmntsal:number;
+    kar_mnttotprs:number;
+    kar_situation:string;
+    kar_debittotemp:number;
+    kar_codexp:number;
+
 }

@@ -1,10 +1,11 @@
 <body>
 
-    <form class="box" action="index.html" method="post">
+    <form (ngSubmit)="onSubmit()" #userForm='ngForm'>
       <h1>Login</h1>
-      <input type="text" name="" placeholder="Username">
-      <input type="password" name="" placeholder="Password">
-      <input type="submit" name="" value="Login">
+      <input type="text" [(ngModel)]="user.username" name="" placeholder="Username">
+      <input type="password" [(ngModel)]="user.password" name="" placeholder="Password">
+
+      <input [disabled]="!userForm.form.valid"   type="submit" name="" value="Login">
     </form>
     
     
