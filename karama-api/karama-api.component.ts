@@ -22,17 +22,22 @@ export class KaramaApiComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private svkarama:KaramaService,
     private routeparam: ActivatedRoute,
+    private router : Router,
   ) { this.data= new Dataset; }
 
 
 
   ngOnInit(): void {
+   if(!this.svkarama.isUserLoggedIn())
+   {
+     this.router.navigate(['login']);
+   }
+   else {
     
     this.spin=true;
-    this.routeparam.queryParams.subscribe(params => {
-        this.tokken = params['jwt'];
-
-        this.svkarama.getkaramalist(this.tokken).subscribe(
+    
+         console.log(this.svkarama.isUserLoggedIn());
+        this.svkarama.getkaramalist().subscribe(
             (karamaa_list) =>{  
                         this.search_icon=true;
                         this.spin=false;
@@ -46,14 +51,14 @@ export class KaramaApiComponent implements OnInit {
             (error)        => { 
                         this.search_icon=false;
                         this.spin=false;
-                        this._snackBar.open('access to api denied , check your connection','dismiss' ,{
+                        this._snackBar.open('access denied , check your connection','dismiss' ,{
                         duration: 10000,panelClass:'red-snackbar'
                          });
                         console.log(error);
                         }
                    );
-                  }
-                   );
+                  
+                   
 
     this.svkarama.getbrcod().subscribe(
       (brcod) =>{ 
@@ -63,7 +68,7 @@ export class KaramaApiComponent implements OnInit {
 
                 } 
     );
-  }
+  }}
 
 
   update(numero_affiliation:string,cin:string){   

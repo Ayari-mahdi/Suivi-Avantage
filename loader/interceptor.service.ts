@@ -9,13 +9,29 @@ import {finalize} from 'rxjs/operators';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(public loaderService: LoaderService) { }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.loaderService.isLoading.next(true);
-    return next.handle(req).pipe(
-      finalize(()=>{this.loaderService.isLoading.next(false);
-      }
-    )
-    );
+  constructor() { }
+  intercept(req:HttpRequest<any>,next:HttpHandler): Observable<HttpEvent<any>>
+  {
+  {
+  if (sessionStorage.getItem('username') && sessionStorage.getItem("token"))
+  { // req = req.clone({
+              //      setHeaders:{
+            //        Authorization:sessionStorage.getItem('token')
+           //         }
+           //       })
+           console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+       const reqs = req.clone({  setHeaders:{
+                   'Content-Type': 'application/json',
+                  'Authorization':sessionStorage.getItem('token')
+                  }});
+                  console.log(req);
+                  console.log(reqs)
+                  return next.handle(reqs);
+                  // Pass the cloned request instead of the original request to the next handle          
+    }
+  }
+  //return next.handle(reqs);
   }
 }
+
+

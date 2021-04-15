@@ -1,11 +1,14 @@
 
+
 export class user{
     username:string;
-    passwrod:string;
-    constructor(username='',password='')
+    password:string;
+    roles:string;
+    constructor(username='',password='',roles='')
     {
         this.username=username;
-        this.passwrod=password;
+        this.password=password;
+        this.roles=roles;
     }
 }
 

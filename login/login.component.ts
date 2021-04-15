@@ -26,10 +26,12 @@ spinlogin= false;
 
    
     // this.router.navigate(['/users',input.value]);   //  
+    console.log(this.user);
     this.svkarama.login(this.user).subscribe(
     (dataa) => {  this.spinlogin=false;
                   this.token=dataa;
-                  this.router.navigate(['home',this.token])
+                  console.log(this.token);
+                  this.router.navigate(['Suivi-Avantage'])
                     },
  
     (error) => {   this.spinlogin=false;

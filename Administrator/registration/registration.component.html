@@ -1,10 +1,15 @@
-<body class="bk">
 
+ <body>
+
+   
+  
     <form class="box"  (ngSubmit)="onSubmit()" #userForm='ngForm'>
-      <h1>Login</h1>
+      <h1>Registration</h1>
+      <input type="email" name="" placeholder="email">
       <input type="text" [(ngModel)]="user.username" name="username" id="username" placeholder="Username"  #username="ngModel" required>
+      <input type="text" [(ngModel)]="user.roles" name="roles" id="roles" placeholder="Roles"  #roles="ngModel" required>
       <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="Password" #password="ngModel" required>
       <button [disabled]="!userForm.form.valid"   type="submit" name="" value="Login">login</button>
     </form>
     
-</body>
+      </body>
