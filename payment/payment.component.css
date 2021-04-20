@@ -1,0 +1,151 @@
+.boxed{
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-left: 15px;
+    padding-right: 0px;
+    text-align: left;
+    width: 70%;
+
+}
+h5{
+    color: black;
+    
+    font-weight: 500;
+    font-size: 18px;
+    margin-right: 70%;
+    margin-top: 5px;
+    
+}
+.box2{
+    width: 95%;
+    height: 440px;
+    padding: 40px;
+    position: absolute;
+    
+    left: 50%;
+
+    transform: translate(-50%,0);
+    background:whitesmoke;
+    margin-top: 60px;
+    text-align:center;
+    margin-bottom: 150px;
+    /*   box-shadow: 2px 5px 8px 5px ;*/
+    box-shadow: 2px 5px 10px 2px ;
+  } 
+
+.box{
+    width: 95%;
+    height: 450px;
+    padding: 40px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background:whitesmoke;
+    margin-top: 50px;
+    text-align:center;
+    /*   box-shadow: 2px 5px 8px 5px ;*/
+    box-shadow: 2px 5px 10px 2px ;
+  } 
+  h1{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 30px;
+    
+  }
+  .box .input4{
+    border:0;
+    background: none;
+    display: inline;
+    margin: 20px 0;
+    margin-left: 10px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px 10px;
+    width: 20%;
+    outline: none;
+    color:black;
+    border-radius: 20px;
+    transition: 0.25s;
+   
+  }
+
+  .box .input3{
+    border:0;
+    background: none;
+    display: inline;
+    margin: 20px 0;
+    margin-left: 10px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px 10px;
+    width: 45%;
+    outline: none;
+    color:black;
+    border-radius: 20px;
+    transition: 0.25s;
+   
+  }
+
+  .box .input2{
+    border:0;
+    background: none;
+    display: inline;
+    margin: 30px auto;
+    margin-left: 60%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px 10px;
+    width: 40%;
+    outline: none;
+    color:black;
+    border-radius: 20px;
+    transition: 0.25s;
+   
+  }
+
+  .box .input1{
+    border:0;
+    background: none;
+    display: inline;
+    margin: 20px auto;
+    margin-left: 3%;
+    text-align: center;
+    border: 1.5px solid;
+    padding: 10px 10px;
+    width: 30%;
+    outline: none;
+    color:black;
+    border-radius: 20px;
+    transition: 0.25s;
+   
+  }
+  /*.box .input1:focus,.box .input2:focus,.box .input3:focus,.box .input4:focus{
+   /* width: 300px;*/
+    /*border-color: #2ecc71;*/
+  /*}*/
+  .box input:focus{
+      border-color:#2ecc71 ;
+  }
+  .box button[type = "submit"]{
+    border:0;
+   
+    background: none;
+    display: inline;
+    margin: 5px auto;
+    text-align:center;
+    border: 2px solid #2ecc71;
+    padding: 10px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    margin-left: 250px;
+    transition: 0.25s;
+    cursor: pointer;
+    box-shadow: 5px 8px 8px black;
+    width: 150px;
+  }
+  .box button[type = "submit"]:hover{
+    background: #2ecc71;
+  }
