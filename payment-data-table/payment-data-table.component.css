@@ -1,0 +1,24 @@
+.full-width-table {
+  width: 100%;
+ 
+  border: 1px solid black;
+  border-radius: 40px;
+}
+.idd{
+ 
+ padding-left: 10px;
+  border: 1px solid black ;
+  background-color: #36304a;
+  color: white;
+  
+}
+.iddd{
+  padding-left: 10px;
+  border: 1px solid ; 
+ }
+
+.data-table{
+  width: 60%;
+  margin: 40px auto;
+
+}

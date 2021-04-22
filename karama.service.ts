@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { aneti_avg, brcod, Dataset, facturation, karama, user, ws_aneti_historique } from './karama';
+import { PaymentDataTableItem } from './payment-data-table/payment-data-table-datasource';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,18 @@ auth="http://localhost:8081/authenticate";
 registerlink ="http://localhost:8081/registration";
 add_aneti_avg_link="http://localhost:8081/add-aneti-avg";
 add_role="http://localhost:8081/add-role";
+agentslist ="http://localhost:8080/agents";
+
   constructor(
     private http:HttpClient
   ) { }
+
+////////////////////
+Testtab():Observable<any>
+{
+  
+  return this.http.get<any>(this.agentslist);}
+
 //-----------------------athenticate
  login(data): Observable<any>
  {

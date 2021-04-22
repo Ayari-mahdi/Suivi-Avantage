@@ -26,7 +26,7 @@ export class InterceptorService implements HttpInterceptor {
                   }});
                   console.log(req);
                   console.log(reqs)
-                  return next.handle(reqs);
+     return next.handle(req);
                   // Pass the cloned request instead of the original request to the next handle          
     }
   }

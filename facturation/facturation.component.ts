@@ -18,11 +18,11 @@ export class FacturationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.svkarama.isUserLoggedIn())
-    {
-      this.router.navigate(['login']);
-    }
-    else {
+   // if(!this.svkarama.isUserLoggedIn())
+   // {
+   //   this.router.navigate(['login']);
+   // }
+   // else {
 
     this.svkarama.getfact().subscribe(
       //factlist
@@ -30,4 +30,5 @@ export class FacturationComponent implements OnInit {
 
        }
 
-}}
+//}
+}

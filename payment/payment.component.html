@@ -4,9 +4,9 @@
     <div class="col">  
         <form class="box"  >
             <h1>Employeur</h1>
-            <input class="input3" type="text"  name="username" id="username" placeholder="Employeur"   required>
-           -<input class="input4" type="text"  name="password6" id="password6" placeholder="Cle"  required>
-            <input class="input3"  type="text"  name="password4" id="password4" placeholder="Année"  required>
+            <input class="input3" type="text"  maxlength="6" size="6" name="username" id="username" placeholder="Employeur"   required>
+           -<input class="input4" type="text"   maxlength="2" size="2"   name="password6" id="password6" placeholder="Cle"  required>
+            <input class="input3"  type="text" maxlength="4" size="4"  name="password4" id="password4" placeholder="Année"  required>
            &nbsp;/<select type="text" 
             class="input4" 
             id="type_avantage" 
@@ -17,7 +17,7 @@
                <option value="1">1</option>
                <option value="2">2</option>
                <option value="3">3</option>
-
+               <option value="4">4</option>
            
             </select>  
             <select style="margin-right: 110px;" type="text" 
@@ -61,7 +61,44 @@
     <div class="col-md-12">
     <form class="box2" >
         <h1>Employés</h1>
-
+        <table class="table table-striped">
+            <thead class="thead"  >
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Agent</th>
+                <th scope="col">Type Contrat</th>       
+                <th scope="col">Import Locale</th>
+                <th scope="col">Date Import</th>    
+                <th scope="col">Creation Dossier</th>  
+                <th scope="col"> Action </th>
+              </tr>
+            </thead>
+            <tbody>    
+             <tr  >
+                
+                <td>a</td>         
+                <td>a</td>  
+                <td>a</td>  
+                <td>a</td>  
+                <td>a</td> 
+                <td>a</td>  
+      
+                
+              
+                <td> <button  class="btn btn-success"> créer les dossiers avantage</button> </td>         
+               
+           
+      
+               
+      
+                  <!--<td>
+                       <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
+                       <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
+                      </div>
+                    </td>       -->
+               </tr>   
+            </tbody>   
+          </table>
     </form>
 </div>
 </div>

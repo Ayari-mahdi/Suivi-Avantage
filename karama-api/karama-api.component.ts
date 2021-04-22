@@ -28,11 +28,11 @@ export class KaramaApiComponent implements OnInit {
 
 
   ngOnInit(): void {
-   if(!this.svkarama.isUserLoggedIn())
-   {
-     this.router.navigate(['login']);
-   }
-   else {
+  // if(!this.svkarama.isUserLoggedIn())
+ //  {
+  //   this.router.navigate(['login']);
+ //  }
+ //  else {
     
     this.spin=true;
     
@@ -68,7 +68,8 @@ export class KaramaApiComponent implements OnInit {
 
                 } 
     );
-  }}
+  //}
+}
 
 
   update(numero_affiliation:string,cin:string){   

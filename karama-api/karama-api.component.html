@@ -19,7 +19,7 @@
             
         <mat-drawer-container >
 <!-- SEARCH DRAWER -->
-        <mat-drawer #drawer mode="slide" style="background: #34495e;width: 350px;height: 400px;top: 0%;border-radius: 10px;" >
+        <mat-drawer #drawer mode="push" style="background: #34495e;width: 350px;height: 400px;top: 0%;border-radius: 10px;" >
           <form (ngSubmit)="onSubmit()"  #userForm="ngForm">  
           <div class="form-group" style="width: 250px;margin-top: 30px;">
             <label for="bureau"></label>
@@ -80,28 +80,28 @@
       </div>-->
 
   <!-- LINK TO TRIGGER THE DRAWER-->
-      <a  (click)="drawer.open()"><i class="fa fa-search" aria-hidden="true"></i> </a>
+      <a  (click)="drawer.open()"><i style="cursor: pointer;" class="fa fa-search" aria-hidden="true"></i> </a>
   <!---->
     
 <br>
 <br>
 
-    <table class="table table-bordered table-striped">
+    <table class="table  table-striped">
       <thead class="thead "  >
         <tr>
           
           
-          <th class="headertab" scope="col">CIN</th>
-          <th class="headertab" scope="col">Nom Prenom</th>             
-          <th class="headertab" scope="col">Bureau</th>
-          <th class="headertab" scope="col">Date Import</th>
-          <th class="headertab" scope="col">Numero d'affiliation</th>
-          <th class="headertab" scope="col">Type Contrat</th>
+          <th  scope="col">#CIN</th>
+          <th  scope="col">Nom Prenom</th>             
+          <th scope="col">Bureau</th>
+          <th  scope="col">Date Import</th>
+          <th  scope="col">Numero d'affiliation</th>
+          <th  scope="col">Type Contrat</th>
           <ng-container *ngIf="!ano; then nrmllist" >
           </ng-container>
           <ng-template #nrmllist>
-          <th class="headertab" scope="col">Employeur Existant</th>
-          <th class="headertab" scope="col">Assuree Existant</th>     
+          <th  scope="col">Employeur Existant</th>
+          <th  scope="col">Assuree Existant</th>     
         </ng-template>
        
         
