@@ -1,18 +1,24 @@
-
-.thead{
+div.head{
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight:500px;
+  font-family:"OpenSans-Semibold",sans-serif ;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;   
+  margin-left: 30px;
+}
+  
+  .thead2{
+    font-size: 12px;
     border: 2px solid black ;
-    background-color: #008B8B;
-    color: white;
-    
-    
+    background-color:rgb(197, 196, 196);
+    color: black;
+    text-transform: uppercase;
+    font-family:"OpenSans-Semibold",sans-serif ;
   }
-  tbody td,.thead th{
+  .thead th{
     border: 1px solid black;
-    text-align: center;
-  }
-  .table{
-     border: 2px solid black ; 
-     margin-top: 100px;
   }
   
 .btnn{
@@ -47,4 +53,43 @@
 .add{
     position: relative;
     left: 72%;
+}
+.search{
+    width: 180px;
+    transition: 0.5s;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 4px 12px;
+}
+.search:focus{
+   width: 350px; 
+   border-top-left-radius: 50px;
+   border-bottom-left-radius: 50px;
+}  
+.btn{
+  border:0;
+ 
+  background:#17a2b8 ;
+  display: inline;
+  margin: 20px auto;
+  text-align:center;
+  border:0.8px solid  #17a2b8;
+  padding: 6px 12px;
+  outline: none;
+  color: white;
+  border-radius: 8px;
+ border-top-left-radius: 0;
+ border-bottom-left-radius: 0;
+  transition: 0.25s;
+  cursor: pointer;
+  box-shadow: 1px 2px 3px black;
+ 
+
+}
+.btn:hover{
+ /* background: #1bac58;*/
+ background: rgb(68, 161, 253);
+  box-shadow: 1px 3px 3px  black;
+  
+  transform: translateY(-0.10em);
 }

@@ -1,0 +1,73 @@
+<div style="background-color: 	#F5F5F5;min-height: 695px" >
+<div id="top"></div>
+<div  class="container">
+
+
+    <!--LOADING CONTAINER-->
+      <div *ngIf="spin" style="margin-top: 40px;" class="container loader-container1" >
+        <div  class="lspinner">
+          
+        </div>  
+        <span class="load">Loading...</span>
+        <div class="loading-dots" >
+          <div class="bounce"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div> 
+        <div   class="container loader-container">
+        </div>
+        </div>
+    <!--END OF LOADING CONTAINER-->
+    
+    
+    <div class="row" style="margin-top: -20px;">
+      <div class="col-md-12" style="margin-top: 20px;">
+        <div class="card my-5" style="border-radius: 20px;">
+          <div class="card-body" style="min-height: 560px;" >
+            <div class="head"> liste d'anomalies</div>
+
+            <div *ngIf="!spin" >  <button style="float: right ;margin:10px auto" class="btn"> Envoyer un email <i style="font-size:25px;padding-left: 5px;" class="fas fa-envelope"></i></button>       
+            </div>  
+        <table *ngIf="!spin" class="table  table-striped">
+          <thead class="thead "  >
+            <tr>
+              
+              
+              <th  scope="col">#CIN</th>
+              <th  scope="col">Nom Prenom</th>             
+              <th scope="col">Bureau</th>
+              <th  scope="col">Date Import</th>
+              <th  scope="col">Numero d'affiliation</th>
+              <th  scope="col">Type Contrat</th>
+            
+            </tr>
+          </thead>
+    
+          <tbody>     
+              <tr  *ngFor="let karama  of karama_list">          
+                  <ng-container *ngIf="karama.emp_exist === 2">           
+                  <td>{{ karama.cin }}</td>
+                  <td>{{ karama.nom_prenom }}</td>       
+                  <td>{{ karama.bur_cod }}</td>
+                  <td>{{ karama.date }}</td>
+                  <td>{{ karama.numero_affiliation }}</td>
+                  <td>{{ karama.type_contrat}}</td>
+                </ng-container>      
+             </tr>   
+          </tbody>   
+        </table>
+    
+      </div>
+      </div>  
+      </div>
+    </div>
+      </div> 
+    <!--     ******************-->
+    
+    <!--<div class="toggle"  ></div>-->
+    <ng-container *ngIf="totop">
+    
+    <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>  
+  </ng-container>
+</div>

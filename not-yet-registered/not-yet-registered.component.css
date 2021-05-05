@@ -1,0 +1,54 @@
+.container{
+    margin-top: 20px;
+  }
+  .thead{
+    border: 2px solid black ;
+    background-color: #008B8B;
+    color: white;
+    
+    
+  }
+  tbody td,.thead th{
+    border: 1px solid black;
+    text-align: center;
+  }
+  .table{
+     border: 2px solid black ; 
+  }
+  div.head{
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight:500px;
+    font-family:"OpenSans-Semibold",sans-serif ;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 95px;   
+    margin-bottom: 15px;
+  
+  }
+  .btn{
+    border:0;
+   
+    background: #17a2b8;
+    display: inline;
+    margin: 20px auto;
+    text-align:center;
+    
+    padding: 6px 12px;
+    outline: none;
+    color: white;
+    border-radius: 8px;
+    margin-left: 80%;
+    transition: 0.25s;
+    cursor: pointer;
+    box-shadow: 1px 2px 3px black;
+   
+
+  }
+  .btn:hover{
+   /* background: #1bac58;*/
+   background: rgb(68, 161, 253);
+    box-shadow: 1px 3px 3px  black;
+    
+    transform: translateY(-0.10em);
+  }

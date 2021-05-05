@@ -1,41 +1,75 @@
-<div class="container">
-  
-    <table class="table table-striped">
+<div style="background-color: 	#F5F5F5;min-height: 695px" >
+<div id="top" class="container">
+  <div class="row">
+    <div class="col-md-12" style="margin-top: 20px;" >
+      <div class="card my-5" style="border-radius: 20px;"  >
+        <div class="card-body"  >
+          <br>
+          <div class="head">les factures</div>
+          <br>
+            <br>
+            <br>
+          <form (ngSubmit)="onSubmit()"  #userForm="ngForm" style="margin-bottom:20px;float:right" >  
+            <div class="form-inline">
+              <label for="cin"></label>
+              <input type="text" (ngModel)="numemp"
+                class="form-control search" 
+                id="numemp" 
+                name="numemp" 
+                #numemp = "ngModel"
+                placeholder="Employeur/Salariés"
+                required
+                > 
+              <button  type="submit"    class="btn ">Recherche<i style="padding-left: 8px;" class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>    
+            </form>    
+
+
+            
+            
+
+    <table class="table ">
+     
       <thead class="thead"  >
         <tr>
-          <th scope="col">#ID</th>
-          <th scope="col">Agent</th>
-          <th scope="col">Type Contrat</th>       
-          <th scope="col">Import Locale</th>
-          <th scope="col">Date Import</th>    
-          <th scope="col">Creation Dossier</th>  
-          <th scope="col"> Action </th>
+          <th scope="col" colspan="1">EMPLOYEUR</th>
+          <th scope="col" colspan="8" style="text-transform: uppercase;" >SALARIéS</th>
+       
         </tr>
       </thead>
       <tbody>    
-       <tr  >
+       <tr class="thead2">    
+          <td>#NUMERO AFFILIATION</td>         
+           <td>MATRICULE FISCALE </td>
+          <td>MATRICULE</td>  
+          <td>CIN</td>  
+          <td>NOM PRENOM</td> 
+          <td>DATE DEBUT</td>      
+          <td>DATE FIN</td>  
+          <td>ANNEE</td>  
+          <td>TRIMESTER</td> 
           
-          <td>a</td>         
-          <td>a</td>  
-          <td>a</td>  
-          <td>a</td>  
-          <td>a</td> 
-          <td>a</td>  
-
-          
-        
-          <td> <button  class="btn btn-success"> créer les dossiers avantage</button> </td>         
+         </tr> 
+         <tr *ngFor="let data  of factlist" >       
+          <td>{{data.kar_numemp}}</td>         
+          <td>{{data.kar_matfisc}}</td>  
+          <td>{{data.kar_matass}}</td>  
+          <td>{{data.Kar_cin}}</td>  
+          <td>{{data.kar_nomsal}} {{data.kar_prenomsal}}</td> 
+          <td>{{data.kar_datdeb}} </td>      
+          <td> {{data.kar_datfin}} </td>  
+          <td>{{data.kar_ann}} </td> 
+          <td> {{data.kar_trim}} </td>           
+         </tr> 
          
-     
-
-         
-
-            <!--<td>
-                 <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
-                 <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
-                </div>
-              </td>       -->
-         </tr>   
       </tbody>   
     </table>
+</div></div></div></div></div>
+<<ng-container *ngIf="totop">
+  <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+  </a>
+</ng-container>
+
+
 </div>

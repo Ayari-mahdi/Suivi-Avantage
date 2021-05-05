@@ -3,12 +3,17 @@
     <nav>
       <a [routerLink]="['home']" routerLinkActive="active" >listing</a>   
       <a [routerLink]="['versioning']" routerLinkActive="active" >versioning</a>
-      <a [routerLink]="['facturation']" routerLinkActive="active" >facturation</a>
       <a [routerLink]="['payment']" routerLinkActive="active" >paiement</a>
-      <a [routerLink]="['charts']" routerLinkActive="active">charts</a>  
-      <a  [routerLink]="['admin']" routerLinkActive="active">{{user}} &nbsp; &nbsp;
+
+      <a [routerLink]="['facturation']" routerLinkActive="active" >facturation</a>
+      <a [routerLink]="['charts']" routerLinkActive="active"> <i style="font-size: 15px;margin-left: 5px;color:dodgerblue;" class="far fa-chart-bar"></i> charts </a>  
+      <a  href="">date : {{myDate | date: 'shortDate' }}  </a>
+      <a  [routerLink]="['admin/agents']" routerLinkActive="active">oussema | {{user}}66324 &nbsp; &nbsp;
+      
+
         <i class="fa fa-user" aria-hidden="true"></i>  
       </a>
+
       <div class="animation start-home"></div>
     </nav>
 </body>

@@ -1,0 +1,41 @@
+.vertical {
+    border-left: 6px solid black;
+    height: 200px;
+    position:absolute;
+    left: 50%;
+}
+.charts {
+   display: block;
+    left: 100%;
+    /*bottom: 50%;*/
+    top: 20%;
+    height: 30px;
+    transition:0.8s ;
+    position: fixed;
+    
+    transform: translate(-100%,0%);
+  }
+  .btn2{
+    border:0;
+    background:grey;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid dodgerblue;
+    border-right: 4px solid dodgerblue;
+    padding: 14px 20px;
+    outline: none;
+    color: white;
+    border-radius: 24px 0px 0px 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    
+    width: 120px;
+  }
+  .btn2:hover{
+      border-color:#2ecc71 ;
+      box-shadow: 1px 2px 3px black;
+  }
+
+ 
+

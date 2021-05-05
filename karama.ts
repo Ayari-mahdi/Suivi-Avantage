@@ -1,13 +1,21 @@
 
+
+
+
 export class user{
+    id:number;
     username:string;
-    password:string;
+    code:string;
     roles:string;
-    constructor(username='',password='',roles='')
+    email:string;
+    password:string;
+    constructor(username='',code='',password='',roles='',email='')
     {
         this.username=username;
-        this.password=password;
+        this.code=code;
         this.roles=roles;
+        this.password=password;
+        this.email=email;
     }
 }
 
@@ -168,4 +176,38 @@ export class facturation
     kar_debittotemp:number;
     kar_codexp:number;
 
+}
+
+export class doss_avgass{ 
+    ass_mat:number;
+    ass_cle:number;
+    emp_mat:number;
+    emp_cle:number;
+    bur_cod:number;
+    doa_refdos:number;
+    daa_dtdeb:string;
+    daa_dtfin:string;
+    daa_cin:number;
+    daa_dtsais:string;
+    daa_numref:string;
+    daa_nom:string;
+    daa_prenom:string;
+    daa_inforef:string;
+    daa_agent:number;
+    daa_salaire:number;
+    daa_dtrec:string;
+    daa_flgper:number;
+    daa_dtdep:string;
+
+}
+export class payresult {
+    total:number;
+    taux:number;
+    finalsum:number;
+}
+export class employerdata{
+    numaf:string;
+    trim:string;
+    year:string;
+    type_avantage:string;
 }

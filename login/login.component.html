@@ -1,10 +1,10 @@
 <body class="bk">
-
+  <img class="logo" src="assets/images/cnss2.png" alt="CNSS logo" >
     <form class="box"  (ngSubmit)="onSubmit()" #userForm='ngForm'>
       <h1>Login</h1>
       <input type="text" [(ngModel)]="user.username" name="username" id="username" placeholder="Username"  #username="ngModel" required>
       <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="Password" #password="ngModel" required>
       <button [disabled]="!userForm.form.valid"   type="submit" name="" value="Login">login</button>
     </form>
-    
+    <img class="flag" src="assets/images/tunisia-flag.jpg" alt="CNSS logo" >
 </body>

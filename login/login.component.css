@@ -1,20 +1,41 @@
-.bk{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: #34495e;
-
+.flag {
+  
+  left: 100%;
+  /*bottom: 50%;*/
+  top: 60%;
+  height: 30px;
+  transition:0.8s ;
+  position: absolute;
+  
+  transform: translate(-100%,0%);
 }
+.flag:hover {
+  
+  
+  height:150px;
+}
+
+
+.logo{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 200px;
+  
+}
+
+
 .box{
   width: 400px;
-  padding: 40px;
+  padding: 30px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%,-50%);
   background: #191919;
   text-align: center;
-  box-shadow: 2px 5px 8px 5px ;
+  box-shadow: 2px 5px 8px 4px ;
 }
 .box h1{
   color: white;

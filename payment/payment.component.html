@@ -1,17 +1,41 @@
+<div id="top"></div>
 <div class="container">
+<!--LOADING CONTAINER-->
+<div *ngIf="paymentspin" style="margin-top: -30px;" class="container loader-container1" >
+  <div  class="lspinner">
+    
+  </div> 
+  <span class="load">Loading...</span>
+  <div class="loading-dots" >
+    <div class="bounce"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div> 
+  <div  class="container loader-container" >
+  </div>
+  </div>
+<!--END OF LOADING CONTAINER-->
+<div *ngIf="paymentspin" class="card" style="border-radius:20px;margin-top: 70px;">
+  <div class="card-body" style="min-height: 560px;">
+    <div class="head" > paiement</div>
+  </div>
+</div>
 
-<div class="row"  style="margin-top:100px;" >
-    <div class="col">  
-        <form class="box"  >
-            <h1>Employeur</h1>
-            <input class="input3" type="text"  maxlength="6" size="6" name="username" id="username" placeholder="Employeur"   required>
-           -<input class="input4" type="text"   maxlength="2" size="2"   name="password6" id="password6" placeholder="Cle"  required>
-            <input class="input3"  type="text" maxlength="4" size="4"  name="password4" id="password4" placeholder="Année"  required>
+<div  *ngIf="!paymentspin" style="margin-top:70px;" >
+
+        <form class="box1"  (ngSubmit)="onSubmit()" #userForm="ngForm" >
+     <div style="font-size:26px;color: dodgerblue;margin-bottom: 20px;">LE {{myDate | date: 'shortDate' }}  </div>  
+            <h2>Employeur</h2>
+            <input class="input3" style="margin-right: 10px;" type="text"  [(ngModel)]="newdata.numaf" #numaf="ngModel" maxlength="9" size="9" name="numaf" id="numaf" placeholder="Employeur"   required>
+          <!-- -<input class="input4" type="text"   maxlength="2" size="2"   name="password6" id="password6" placeholder="Cle"  required>-->
+           <input class="input3" [(ngModel)]="newdata.year" #year="ngModel"   type="text" maxlength="4" size="4"  name="year" id="year" placeholder="Année"  required>
            &nbsp;/<select type="text" 
             class="input4" 
-            id="type_avantage" 
-            name="type_avantage" 
-            placeholder="Entre type"
+            id="trim" 
+            name="trim" 
+            [(ngModel)]="newdata.trim" 
+            #trim="ngModel" 
+            placeholder="trim"
             required
             >    
                <option value="1">1</option>
@@ -20,86 +44,123 @@
                <option value="4">4</option>
            
             </select>  
-            <select style="margin-right: 110px;" type="text" 
+            <select  type="text" 
             class="input3" 
             id="type_avantage" 
             name="type_avantage" 
+            [(ngModel)]="newdata.type_avantage" #type_avantage="ngModel" 
             placeholder="Entre type"
             required
             >    
-               <option value="KARAMA">karama</option>
-               <option value="CIVP">CIVP</option>
-               <option value="SCV">SCV</option>
-
-           
+            <ng-container *ngFor="let types of aneti_avg ">
+              <option value="{{types.code}}">{{ types.code}}</option>
+           </ng-container>
             </select> 
 
-            <button   type="submit" name="" value="Recherche">Recherche</button>
+            <button  [disabled]="!userForm.form.valid" type="submit" name="" value="Recherche">Recherche</button>
 
 
         </form>
-</div>  
-<div class="col">
-    <form class="box" >
-        <h1>paiement</h1>
-        <input class="input1" type="text"  name="username" id="username" placeholder="SalDéclarés"  required>
-        <input class="input1" type="text"  name="password" id="password" placeholder="Taux" required>
-        <input class="input1" type="text"  name="password1" id="password1" placeholder="Montants à Payer"  required>
-        <h5>Pénalités </h5>
-        <div class="boxed"> 
-      
-        <input class="input3"  type="text"  name="password2" id="password2" placeholder="nombre de jour"  required>
-        <input class="input3"  type="text"  name="password2" id="password2" placeholder="Montant"  required>
-    </div>
-      <input class="input2"  type="text"  name="password3" id="password3" placeholder="Total à Payer"  required>
+</div>
 
-    </form>
-      
-</div>
-</div>
-<div class="row">
+<div  *ngIf="!paymentspin" >
     <div class="col-md-12">
+      <hr>
     <form class="box2" >
-        <h1>Employés</h1>
+        <h2>Salariés</h2>
         <table class="table table-striped">
             <thead class="thead"  >
               <tr>
-                <th scope="col">#ID</th>
-                <th scope="col">Agent</th>
-                <th scope="col">Type Contrat</th>       
-                <th scope="col">Import Locale</th>
-                <th scope="col">Date Import</th>    
-                <th scope="col">Creation Dossier</th>  
-                <th scope="col"> Action </th>
+                <th style="border-bottom: 1px black;" scope="col">#MATRICULE</th>
+                <th scope="col">NOM PRENOM</th>
+                <th scope="col">TYPE DE CONTRAT</th>       
+                 
+                <th scope="col"> ACTIONs </th>
               </tr>
             </thead>
             <tbody>    
-             <tr  >
-                
-                <td>a</td>         
-                <td>a</td>  
-                <td>a</td>  
-                <td>a</td>  
-                <td>a</td> 
-                <td>a</td>  
-      
-                
-              
-                <td> <button  class="btn btn-success"> créer les dossiers avantage</button> </td>         
-               
-           
-      
-               
-      
+             <tr  *ngFor="let list of dossavgass">              
+                <td> {{list.ass_mat}} </td>         
+                <td> {{list.daa_nom}} {{list.daa_prenom}} </td>               
+                <td>{{newdata.type_avantage}}</td>                 
+                <td> <button  class="btn btn-success" (click)="open(content,list)" > ajout salaire</button>
+                </td>   
+
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">ajout salaire trimestriel de {{list.daa_nom}}  {{list.daa_prenom}}</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  
+                  <div class="modal-body">
+                    <form  #userForm='ngForm' >
+                      <div class="form-group">
+                        <label for="dateOfBirth">Salaire trimestriel en millimes (pas de virgule)</label>
+                        <div class="input-group">
+                          <input id="dateOfBirth"   [(ngModel)]="salaire"  name="sal"  id="sal"  #sal="ngModel" required class="form-control" placeholder="000.000.000" name="dp">    
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" [disabled]="!userForm.form.valid"   type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                  </div>
+                </ng-template>
                   <!--<td>
                        <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
                        <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
                       </div>
                     </td>       -->
-               </tr>   
+               </tr>        
             </tbody>   
           </table>
+          <div style="margin-bottom :100px;">
+            <button style="margin:20px;float:right; " class="btnbox2"
+            type="submit" (click)="calculate()"   class="btn btn-success btnbox2">Salaire Total 
+            </button>
+          </div>
     </form>
 </div>
 </div>
+<!-- MODAL -->
+
+<hr>
+<!-- end of modal-->
+
+ 
+
+<div  *ngIf="!paymentspin" style="border-top: 2px solid black;margin-bottom: 35px;"></div>
+
+<div  *ngIf="!paymentspin" style="margin-bottom: 150px;margin-top: 0px;"  >
+  <form class="box" >
+      <h2>paiement</h2>
+      <input style="border-color:#3498db;" class="input1" readonly type="text"   name="username" id="username" placeholder="SalDéclarés"  required>
+      <input  style="border-color:#3498db;" class="input1" readonly type="text"  name="password" id="password" placeholder="Taux" required>
+      <input style="border-color: red;" class="input1" readonly type="text"  name="password1" id="password1" placeholder="Montants à Payer"  required>
+    
+
+      <h5>Pénalités </h5>
+      <div class="boxed"> 
+    
+      <input class="input3"  type="text"  name="password2" id="password2" placeholder="nombre de jour"  required>
+      <input class="input3"  readonly type="text"  name="password2" id="password2" placeholder="Montant"  required>
+  </div>
+  <hr style="height: 0.5px;background-color: black;">
+    <input style="border-width:2px;border-color: red;"  class="input2" readonly type="text"  name="password3" id="password3" placeholder="Total à Payer"  required>
+    <button    type="submit" name="" value="Recherche">Paiement ?</button>
+
+  </form>
+    
+
+</div>
+<div>
+
+</div>
+<ng-container *ngIf="totop">
+
+<a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+</a>
+</ng-container>
 </div>  

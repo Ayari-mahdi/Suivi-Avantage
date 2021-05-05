@@ -15,10 +15,10 @@ body {
 }
 nav{
 	position:relative;
-	margin: 50px auto 0;
+	margin: 0px auto 0;
 	
 	width: 650px;
-	height: 50px;
+	height: 55px;
 	background: #34495e;
 	border-radius: 8px;
 	font-size: 0;
@@ -29,18 +29,19 @@ nav a{
 	text-transform: uppercase;
 	color: white;
 	text-decoration: none;
-	line-height: 50px;
+	line-height: 55px;
 	position: relative;
 	z-index: 1;
 	display: inline-block;
 	text-align: center;
     cursor: pointer;
+	font-family:"OpenSans-Semibold",sans-serif; ;
 }
 nav .animation{
 	position: absolute;
 	height: 100%;
 	/* height: 5px; */
-	top: 0;
+	top: 0px;
 	/* bottom: 0; */
 	z-index: 0;
 	background: #1abc9c;
@@ -49,7 +50,7 @@ nav .animation{
 }
 nav .start-home{
 	width: 8px;
-	left: 0;
+	left: 0px;
 }
 nav a:nth-child(1){
 	width: 100px;
@@ -75,34 +76,54 @@ nav a:nth-child(2):hover~.animation{
 	left: 100px;
 }
 nav a:nth-child(3){
-	width: 140px;
+	width: 100px;
+	color: white;
+
 }
 nav a:nth-child(3):hover~.animation{
-	width: 140px;
+	width: 100px;
 	left: 210px;
 }
 nav a:nth-child(4){
-	width: 100px;
+	width: 140px;
+	color: white;
+
 }
 nav a:nth-child(4):hover~.animation{
-	width: 100px;
-	left: 350px;
+	width: 140px;
+	left: 310px;
 }
 nav a:nth-child(5){
 	width: 100px;
+	color: white;
 }
 nav a:nth-child(5):hover~.animation{
 	width: 100px;
 	left: 450px;
 }
 nav a:nth-child(6){
-    left: 380px;
+    left: -950px;
 	width: 100px;
-   
+	color: white; 
+	font-size: 15px;
+
+	word-spacing: 10%;
 }
-nav a:nth-child(6):hover~.animation{
-	width: 100px;
-    left: 930px;
+nav a:nth-child(7){
+    left: 820px;
+	width: 200px;
+	color: white; 
+	bottom: 55px;
+	
+	line-height: 50px;
+	border-bottom: 5px solid lightblue;
+	border-radius: 5px;
+
+}
+nav a:nth-child(7):hover~.animation{
+	width: 200px;
+    left: 820px;
+	
 	
 }
 

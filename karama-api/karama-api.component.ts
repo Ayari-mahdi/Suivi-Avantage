@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { brcod, Dataset, karama } from '../karama';
+import { aneti_avg, brcod, Dataset, karama } from '../karama';
 import { KaramaService } from '../karama.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { KaramaService } from '../karama.service';
   styleUrls: ['./karama-api.component.css']
 })
 export class KaramaApiComponent implements OnInit {
+  totop=false;
   karama_list : Dataset[];
+  aneti_avg:aneti_avg[];
   data: Dataset;
   data2:Dataset[];
   brcod:brcod[];
@@ -23,7 +25,17 @@ export class KaramaApiComponent implements OnInit {
     private svkarama:KaramaService,
     private routeparam: ActivatedRoute,
     private router : Router,
-  ) { this.data= new Dataset; }
+  ) { this.data= new Dataset; 
+    document.addEventListener('scroll',()=>{
+      if(window.scrollY>350){
+     console.log("TEST");
+     this.totop=true
+      }
+      else{
+        this.totop=false
+      }
+    })
+  }
 
 
 
@@ -35,6 +47,7 @@ export class KaramaApiComponent implements OnInit {
  //  else {
     
     this.spin=true;
+   
     
          console.log(this.svkarama.isUserLoggedIn());
         this.svkarama.getkaramalist().subscribe(
@@ -68,6 +81,18 @@ export class KaramaApiComponent implements OnInit {
 
                 } 
     );
+
+    this.svkarama.getaneti_avn().subscribe(
+      (data) =>{  
+                  
+                 
+                  this.aneti_avg=data;
+                },
+      (error)=>{  
+                 
+                    
+      } 
+    );
   //}
 }
 
@@ -99,10 +124,10 @@ onSubmit(){
     this.spin=true;
     console.log(this.data)
     // this.router.navigate(['/users',input.value]);   //  
-    this.svkarama.search(this.data.BUR_COD,this.data.NUMERO_AFFILIATION,this.data.CIN,this.data.TYPE_AVANTAGE ).subscribe(
+    this.svkarama.search(this.data.TYPE_CONTRAT,this.data.BUR_COD,this.data.CIN ).subscribe(
     (dataa) => {    this.spin=false;
                     this.karama_list = dataa;
-       
+                     
                     console.log(this.karama_list);                               
                     },
 
@@ -110,19 +135,13 @@ onSubmit(){
                    this._snackBar.open('user not found','dismiss' ,{
                    duration: 10000,panelClass:'red-snackbar'
                    });
-                   this.ngOnInit();
+                
                    });            
 }
 
-listing(){
-  this.ano=false;
+backtotop(){
+  let top=document.getElementById('top');
   
-}
-beneficiaire(){
-///////////
-}
-anomalie(){
-/////////////
-  this.ano=true;
+  top.scrollIntoView({behavior:'smooth',block:'center'});
 }
 }

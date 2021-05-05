@@ -10,9 +10,10 @@ import { LoaderService } from '../loader/loader.service';
   styleUrls: ['./versioning.component.css']
 })
 export class VersioningComponent implements OnInit {
+  visible=true;
   aneti_avg:aneti_avg[];
   historique_table:ws_aneti_historique[];
-  
+  totop=false;
 date_avantage1: string;
 type_avantage1:string;
 spin_versioning = false;
@@ -21,9 +22,29 @@ spin_data_importation:boolean ;
     private _snackBar: MatSnackBar,
     private svkarama:KaramaService,
     public loaderService: LoaderService
-  ) {}
+  ) { document.addEventListener('scroll',()=>{
+    if(window.scrollY>350){
+   console.log("TEST");
+   this.totop=true
+    }
+    else{
+      this.totop=false
+    }
+  })}
 
-
+  onOptionsSelected(value)
+  {
+    if(value==='1')
+    {
+      this.visible=true
+      console.log(this.visible)
+    }
+    if(value==='2')
+    {
+      this.visible=false
+      console.log(this.visible)
+    }
+  }
 //************** */
   ngOnInit(): void {
     console.log(this.spin_data_importation);
@@ -47,7 +68,8 @@ spin_data_importation:boolean ;
     );
     
     this.svkarama.gethistorique().subscribe(
-      (data2)=> {this.historique_table = data2;},
+      (data2)=> {this.historique_table = data2;
+      console.log(this.historique_table)},
       (error2)=>{this._snackBar.open('access to api failed, check your connection please','dismiss' ,{
         duration: 10000,panelClass:'red-snackbar'
       });  
@@ -79,4 +101,10 @@ onSubmit()
                 //this.ngOnInit();
                   });  
 }
+backtotop(){
+  let top=document.getElementById('top');
+  
+  top.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
 }

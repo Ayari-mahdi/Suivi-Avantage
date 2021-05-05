@@ -1,36 +1,63 @@
+
+    
 <div class="container">
     <table class="table  table-striped">
       <thead class="thead"  >
         <tr>
           <th scope="col">#ID</th>
-          <th scope="col">name</th>
-          <th scope="col">roles</th>        
-          <th scope="col" colspan="2"> Action </th>
+          <th scope="col">agent</th>
+          <th scope="col">CODE</th>
+          <th scope="col">Email</th>
+          <th scope="col">ROLE</th>        
+          <th scope="col" colspan="2"> ACTIONS </th>
         </tr>
       </thead>
       <tbody class="tbody">    
-       <tr  *ngFor="let usertable  of dataa ">
-          
+       <tr  *ngFor="let usertable  of dataa ">          
           <td>{{usertable.id}}</td>         
           <td>{{usertable.username}}</td>  
+          <td>{{usertable.code}}</td>
+          <td>{{usertable.email}}</td>
           <td>{{usertable.roles}}</td>      
-
           <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
           </span></a></td>
          <td> <a><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
           </span></a>
             </td>         
-         
-       
-
-            <!--<td>
-                 <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
-                 <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
-                </div>
-              </td>       -->
          </tr>   
       </tbody>   
     </table>
-    <div class="add"> Ajouter un agent  <a>  <span class="icon"> <i class="fas fa-user-plus" aria-hidden="true"></i>
+    <div class="add"  (click)="open(content)" > Ajouter un agent  <a>  <span class="icon3"> <i class="fas fa-user-plus" aria-hidden="true"></i>
     </span>  </a>   </div>
+
+    
+    <div>
+      <ng-template #content let-modal>
+        <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+          <h4 class="modal-title" id="modal-basic-title"></h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style="color: white;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color:#191919 ;">
+          <form  #userForm='ngForm' >
+           <div class="box">
+            <h1>agent</h1>
+            <input type="email" name="email" placeholder="Email">
+            <input type="text"  name="username" id="username" placeholder="Agent nom"  required>
+            <input type="text" name="code" id="code" placeholder="Code"  required>
+            <input type="text" name="roles" id="roles" placeholder="Role"  required>
+            <input type="password"name="password" id="password" placeholder="mot de passe" required>
+            <button [disabled]="!userForm.form.valid" (click)="modal.close('Save click')"  type="submit" name="" value="Login">Ajouter</button>
+
+
+          </div>
+          </form>
+        </div>
+
+       
+      </ng-template>
+
+    </div>
 </div>
+

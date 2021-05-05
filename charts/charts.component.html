@@ -1,1 +1,82 @@
-<p>charts works!</p>
+
+<div  style="background-color: 	#F5F5F5;">
+  <div class="container">
+<hr width="80%" style="margin-top: 0px;">  
+<div class="charts">
+<a class="btn2" (click)="chart('chart1')">chart1</a>
+<a class="btn2" (click)="chart('chart2')">chart2</a>
+<a class="btn2" (click)="chart('chart3')">chart3</a>
+<a class="btn2" (click)="chart('chart4')">chart4</a>
+</div>
+
+<!--LOADING CONTAINER-->
+ <div *ngIf="chartspin" style="margin-top: 40px;" class="container loader-container1" >
+  <div  class="lspinner">
+  
+  </div>
+ 
+  <span class="load">Loading...</span>
+  <div class="loading-dots" >
+    <div class="bounce"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div> 
+
+
+  <div   class="container loader-container">
+  </div>
+  </div>
+<!--END OF LOADING CONTAINER-->
+<div  *ngIf="chartspin" id="chart1"  style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+></div>
+<ng-container *ngIf="!chartspin">
+<highcharts-chart  id="chart1"
+  [Highcharts]="Highcharts"
+  [options]="chartOptions3"
+  style="width: 100%; border-radius: 20px;height: 450px;display: block;margin: 80px auto; "
+></highcharts-chart>
+</ng-container>
+
+<hr width="80%">
+
+<div  *ngIf="chartspin" id="chart2"    style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+></div>
+<ng-container *ngIf="!chartspin">
+<highcharts-chart id="chart2"
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  style="width: 100%; border-radius: 20px; height: 450px;display: block;margin: 100px auto; "
+></highcharts-chart>
+</ng-container>
+
+<hr width="80%">
+
+<div  *ngIf="chartspin" id="chart3"   style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+></div>
+<ng-container *ngIf="!chartspin">
+<highcharts-chart id="chart3"
+  [Highcharts]="Highcharts"
+  [options]="chartOptions2"
+  style="width: 100%;  border-radius: 20px;height: 450px; display: block;margin: 100px auto;"
+></highcharts-chart>
+</ng-container>
+<hr width="80%">
+<div  *ngIf="chartspin" id="chart4"   style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+></div>
+<ng-container *ngIf="!chartspin">
+<highcharts-chart  id="chart4"
+  [Highcharts]="Highcharts"
+  [options]="chartOptions4"
+  style="width: 100%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+></highcharts-chart>
+</ng-container>
+<ng-container *ngIf="totop">
+  <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+  </a>
+</ng-container>
+
+
+
+<hr width="80%" style="margin: 0px;">  
+</div>
+</div>

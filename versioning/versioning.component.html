@@ -1,20 +1,63 @@
+<div style="background-color: 	#F5F5F5;min-height: 695px;margin-top: -20px;" >
+<div id="top"></div>
 <div class="container">
-  <div  *ngIf="spin_versioning || spin_data_importation"  class="container loader-container1" >
-    <div  *ngIf="spin_versioning || spin_data_importation" class="loading">
-      <span>Loading...</span>
-    </div>  
-    <div  *ngIf="spin_versioning  || spin_data_importation" class="container loader-container">
+
+  <!-- LOADER SPINNER-->
+  <div style="margin-top: 40px;" *ngIf="spin_versioning || spin_data_importation"  class="container loader-container1" >
+    <div   class="lspinner">
+    
+    </div> 
+    <span class="load">Loading...</span>
+    <div class="loading-dots" >
+      <div class="bounce"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <div   class="container loader-container">
   
     </div>
     </div>
+    <!-- END LOADER SPINNER-->
 
    
-    <div class="row">
+    <div class="row" style="padding-top: 20px;">
       <div class="col-md-12">
-        <div class="card bg-dark my-5">
-          <div class="card-body">
-            <h2 class="card-title text-center text-white py-3">Suivi Avantage</h2>
+      
+        <div *ngIf="spin_versioning" class="card my-5" style="border-radius:20px;">
+          <div class="card-body" style="min-height: 560px;">
+            <div class="head" > Versioning</div>
+          </div>
+        </div>
+
+
+        <div class="card bg-dark my-5" style="border-radius: 20px;" *ngIf="!spin_versioning">
+          <div class="card-body"  >    
+            <h2 class="card-title text-center text-white pt-3">Suivi Avantage</h2>
+            <h2 class="card-title text-center text-white pb-3">Versioning</h2>
+            <hr style="height: 2px;background-color: white;">
+ <ul class="list-inline" style=" margin-bottom: 30px;">
+   <li class="list-inline-item" style="color: white;">Type d'import : </li> 
+    <li class="list-inline-item">      <label for="type_avantage"></label>
+              <select type="text"  #mySelect
+              (change)="onOptionsSelected(mySelect.value)"
+               class="form-control" 
+               id="type_import" 
+               name="type_import" 
+               placeholder="Entre type"
+              
+               required
+
+             >    
+                  <option value="1">avantage</option>
+                  <option value="2">beneficiaire</option>
+              </select>     </li>    
+            </ul>    
+            <hr style="height: 2px;background-color: white;">  
+            
+
             <ul class="text-center list-inline py-3">
+<ng-container *ngIf="visible">
+
 
                 <form (ngSubmit)="onSubmit()"  #userForm="ngForm">
                   <li class="list-inline-item">     
@@ -50,6 +93,59 @@
                      <button type="submit"  [disabled]="!userForm.form.valid"  style="margin-bottom: 6px;" class="btn btn-info">import</button>
                     </li>
                 </form>
+         </ng-container>
+         <ng-container *ngIf="!visible">
+
+
+          <form (ngSubmit)="onSubmit()"  #userForm="ngForm">
+            <li class="list-inline-item">     
+              <div class="form-group">
+                 <label for="date_avantage"></label>
+                 <input type="text" [(ngModel)]="date_avantage1" 
+                  class="form-control" 
+                  id="date_avantage" 
+                  name="date_avantage" 
+                  placeholder="affiliation eg:978455-98 "
+                  required
+                  #date_avantage="ngModel">
+                                    
+              </div>
+           
+           
+            </li>
+            <li class="list-inline-item">     
+              <div class="form-group">
+                 <label for="date_avantage"></label>
+                 <input type="text" [(ngModel)]="date_avantage1" 
+                  class="form-control" 
+                  id="date_avantage" 
+                  name="date_avantage" 
+                  placeholder="date min "
+                  required
+                  #date_avantage="ngModel">
+                                    
+              </div>
+            </li>
+            <li class="list-inline-item">     
+              <div class="form-group">
+                 <label for="date_avantage"></label>
+                 <input type="text" [(ngModel)]="date_avantage1" 
+                  class="form-control" 
+                  id="date_avantage" 
+                  name="date_avantage" 
+                  placeholder="date max "
+                  required
+                  #date_avantage="ngModel">
+                                    
+              </div>
+            </li>
+            
+               <li class="list-inline-item">
+               <button type="submit"  [disabled]="!userForm.form.valid"  style="margin-bottom: 6px;" class="btn btn-info">import</button>
+              </li>
+          </form>
+   </ng-container>
+
               </ul>        
           </div>     
    <!-- <div *ngIf="loaderService.isLoading" class="loder-container1">  
@@ -61,7 +157,7 @@
       <mat-spinner mode="indeterminate"></mat-spinner>   
     </div>-->
       <div>
-        <table class="table table-striped">
+        <table class="table table-striped" *ngIf="!spin_versioning">
           <thead class="thead"  >
             <tr>
               <th scope="col">#ID</th>
@@ -84,7 +180,7 @@
               <td>{{histotable.creation_dossier}}</td>  
 
               
-            <ng-container *ngIf="histotable.boo_creation_dosser !== 1; then temp1; else temp2">
+            <ng-container *ngIf="histotable.boo_creation_dossier !== 1; then temp1; else temp2">
             </ng-container>
             <ng-template #temp1>
               <td> <button  class="btn btn-success"> créer les dossiers avantage</button> </td>         
@@ -106,4 +202,11 @@
     </div>
       </div>
     </div>
+    <ng-container *ngIf="totop">
+      <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </ng-container>
+    
+    
+</div>
 </div>
