@@ -30,7 +30,7 @@
     border:0;
    
     background: #17a2b8;
-    display: inline;
+    display:inline;
     margin: 20px auto;
     text-align:center;
     
@@ -38,7 +38,7 @@
     outline: none;
     color: white;
     border-radius: 8px;
-    margin-left: 80%;
+   
     transition: 0.25s;
     cursor: pointer;
     box-shadow: 1px 2px 3px black;

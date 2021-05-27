@@ -12,22 +12,24 @@ import { KaramaService } from '../karama.service';
 export class FacturationComponent implements OnInit {
  factlist:facturation[];
  totop=false;
- //numemp:string;
- numemp="";
+ numemp1:string;
+ year:string;
+ trim:string;
+ //numemp="";
   constructor(
     private _snackBar: MatSnackBar,
     private svkarama:KaramaService,
     private router:Router,
   ) {document.addEventListener('scroll',()=>{
     if(window.scrollY>350){
-   console.log("TEST");
-   this.totop=true
+ 
+   this.totop=true;
     }
     else{
-      this.totop=false
+      this.totop=false;
     }
   })
-    //this.numemp=""
+  
    }
 
   ngOnInit(): void {
@@ -38,22 +40,20 @@ export class FacturationComponent implements OnInit {
    // else {
   }
   onSubmit(){
-    this.svkarama.factsearch(this.numemp).subscribe(
+   console.log(this.numemp1,this.year,this.trim)
+    this.svkarama.factsearch(this.numemp1,this.year,this.trim).subscribe(
       (data) =>{  
-        
-
         this.factlist = data  ;
         this._snackBar.open('done ','dismiss' ,{
           duration: 1200,panelClass:'snackbar'
-            });
-        console.log(this.factlist);
+            });          
+            console.log("error")
        },
 (error)        => { 
-        
+        console.log("error")
         this._snackBar.open('Employer dosnt exist','dismiss' ,{
         duration: 10000,panelClass:'red-snackbar'
          });
-        console.log(error);
         }
 
     );

@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { fade } from '../../animations';
 
 @Component({
-  selector: 'app-new-advantages',
-  templateUrl: './new-advantages.component.html',
-  styleUrls: ['./new-advantages.component.css'],
+  selector: 'app-complaints',
+  templateUrl: './complaints.component.html',
+  styleUrls: ['./complaints.component.css'],
   animations:[
     fade
   ]
 })
-export class NewAdvantagesComponent implements OnInit {
+export class ComplaintsComponent implements OnInit {
+
   closeResult='';
-  constructor( private modalService : NgbModal,
-    private modalService2 : NgbModal,
-    ) { }
+  constructor( private modalService : NgbModal,) { }
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',centered:true, scrollable: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -34,15 +33,7 @@ export class NewAdvantagesComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  open2(content) {
-    this.modalService2.open(content, {ariaLabelledBy: 'modal-basic-title',centered:true, scrollable: true }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-      console.log('saved successfully');
 
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-   }
   ngOnInit(): void {
   }
 

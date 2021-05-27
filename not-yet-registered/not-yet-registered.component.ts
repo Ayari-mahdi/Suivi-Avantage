@@ -59,6 +59,44 @@ export class NotYetRegisteredComponent implements OnInit {
                    }
               );
   }
+
+
+  update(numero_affiliation:string,cin:string,typeavg:string){   
+    this.spin=true 
+    this.svkarama.update(numero_affiliation ,cin,typeavg).subscribe( 
+    (res)   => { this.spin=false;
+                this._snackBar.open('updated ','dismiss' ,{
+                duration: 10000,panelClass:'snackbar'
+                  });                 
+             },
+    (error) => { this.spin=false;
+                 this._snackBar.open('update denied','dismiss' ,{
+                 duration: 10000,panelClass:'red-snackbar'
+                 });
+             }
+    );
+  }
+
+
+  updateall(){
+    this.spin=true 
+    this.svkarama.updateall().subscribe( 
+      (res)   => { this.spin=false;    
+        this._snackBar.open('updated ','dismiss' ,{
+          duration: 10000,panelClass:'snackbar'
+            });
+          
+               },
+      (error) => { this.spin=false;  
+       
+            
+               }
+      );
+  }
+
+
+
+
   backtotop(){
     let top=document.getElementById('top');
     

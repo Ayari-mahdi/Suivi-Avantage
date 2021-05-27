@@ -12,7 +12,7 @@
    
 }
 .table{
-    width: 70%;
+    width: 90%;
     margin:100px auto 20px auto;
      border: 2px solid black ;
      
@@ -39,24 +39,25 @@
 }
 .icon 
 {   font-family:fontAwesome;
-    font-size: 22px;
+    font-size: 18px;
     color: #2ecc71;
     cursor: pointer;
 }
 .icon2{
     color:red;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 16px;
 }
 .icon3 
 {   font-family:fontAwesome;
-    font-size: 22px;
+    font-size: 18px;
     color: dodgerblue;
     cursor: pointer;
 }
 .add{
     position: relative;
-    left: 72%;
+    float: right;
+    margin-right: 60px;
 }
 
 /*regisstration */
@@ -89,7 +90,25 @@
     transition: 0.25s;
    
   }
-  .box input[type = "text"]:focus,.box input[type = "password"]:focus,.box input[type = "email"]:focus{
+  .box select{
+    border:0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    height: 50px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+ 
+  
+  }
+
+
+  .box input[type = "text"]:focus,.box input[type = "password"]:focus,.box input[type = "email"]:focus,.box select:focus{
     width: 300px;
     border-color: #2ecc71;
   }

@@ -1,10 +1,10 @@
-<div style="background-color: 	#F5F5F5;min-height: 695px" >
+<div style="background-color: 	#F5F5F5;min-height: 92.5vh" >
 <div id="top"></div>
-  <div class="container">
-
-
+<div class="container">
+    
+    
 <!--LOADING CONTAINER-->
-  <div *ngIf="spin" style="margin-top: 40px;"  class="container loader-container1" >
+  <!--<div *ngIf="spin" style="margin-top: 40px;"  class="container loader-container1"  >
     <div  class="lspinner">
       
     </div>
@@ -16,18 +16,41 @@
     </div> 
     <div  class="container loader-container">
     </div>
-    </div>
+    </div>-->
 <!--END OF LOADING CONTAINER-->
 
 
-<div class="row"style="margin-top: -20px;">
-  <div class="col-md-12" style="margin-top: 20px;">
+<div class="row">
+  <div class="col-md-12" style="margin-top: 30px;">
+    <!--Spinner-->
+    <div class="card my-5  " *ngIf="spin"
+    style="border-radius:20px;background-color:#0000004A;">
+     <div class="card-body" style="min-height: 560px;
+    ;border-radius: 20px;        
+     z-index: 99; 
+     ">
+       <div class="card-title text-center pt-3 head animate__animated animate__backInDown" >beneficiaires</div>
+     <div style="display: flex; align-items: center;
+     justify-content: center; ">
+      <div   class="lspinner">
 
-    <div class="card my-5" style="border-radius: 20px;">
+     </div> 
+       <span style="text-align: center;" class="load">Loading...</span>
+       <div style="margin-top: 220px;" class="loading-dots" >
+         <div class="bounce"></div>
+         <div class="bounce2"></div>
+         <div class="bounce3"></div>
+       </div>
+     </div>
+     </div>
+   </div>
+<!--spinnerEnd-->
+
+    <div *ngIf="!spin" class="card mt-5" style="border-radius: 20px;">
       <div class="card-body" style="min-height: 560px;"  >
         <mat-drawer-container  style="background-color: white;">
 <!-- SEARCH DRAWER -->
-        <mat-drawer #drawer mode="push" style="background: #34495e;width: 350px;height: 400px;top: 0%;border-radius: 10px;" >
+        <mat-drawer #drawer mode="slide" style="background: #34495e;width: 350px;height: 400px;top: 0%;border-radius: 10px;" >
           <form (ngSubmit)="onSubmit()"  #userForm="ngForm">  
           <div class="form-group" style="width: 250px;margin-top: 30px;">
             <label for="bureau"></label>
@@ -83,7 +106,7 @@
   <!-- LINK TO TRIGGER THE DRAWER-->
       <a  (click)="drawer.open()"><i style="cursor: pointer;" class="fa fa-search" aria-hidden="true"></i> </a>
   <!---->
-    <div class="head"> bénéficiaires</div>
+    <div class="card-title text-center pt-3 head  animate__animated animate__backInDown"> bénéficiaires</div>
 <br>
 <br>
     <table *ngIf="!spin" class="table  table-striped">
@@ -151,6 +174,11 @@
   </mat-drawer-container>
   </div>
   </div>  
+
+  
+  
+    
+
   </div>
 </div>
   </div> 
@@ -160,11 +188,14 @@
 
 <!--     ******************-->
  
+
 <!--<div class="toggle"  ></div>-->
 <ng-container *ngIf="totop">
   <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
   </a>
 </ng-container>
+
+
 
 
 </div>

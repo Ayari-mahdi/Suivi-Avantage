@@ -1,7 +1,9 @@
 
     
-<div class="container">
-    <table class="table  table-striped">
+<div class="container  " >
+
+
+    <table class="table  table-striped " @fade>
       <thead class="thead"  >
         <tr>
           <th scope="col">#ID</th>
@@ -12,28 +14,68 @@
           <th scope="col" colspan="2"> ACTIONS </th>
         </tr>
       </thead>
-      <tbody class="tbody">    
+      <tbody class="tbody  ">    
        <tr  *ngFor="let usertable  of dataa ">          
           <td>{{usertable.id}}</td>         
           <td>{{usertable.username}}</td>  
           <td>{{usertable.code}}</td>
           <td>{{usertable.email}}</td>
           <td>{{usertable.roles}}</td>      
-          <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+          <td > <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
           </span></a></td>
-         <td> <a><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
+         <td > <a><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
           </span></a>
             </td>         
          </tr>   
+
+         <tr >          
+          <td>1</td>         
+          <td>oussema cherif</td>  
+          <td>66324</td>
+          <td>cherif.oussema@gmail.com</td>
+          <td>admin</td>      
+          <td > <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+          </span></a></td>
+         <td > <a><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
+          </span></a>
+            </td>         
+         </tr>   
+         <tr >          
+          <td>2</td>         
+          <td>amine ben mohammed</td>  
+          <td>54836</td>
+          <td>mohammed.amine@gmail.com</td>
+          <td>CNSS agent</td>      
+          <td > <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+          </span></a></td>
+         <td > <a><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
+          </span></a>
+            </td>         
+         </tr>   
+
+         <tr >          
+          <td>3</td>         
+          <td>khalil garbi</td>  
+          <td>47235</td>
+          <td>khalilgharbi@gmail.com</td>
+          <td>CNSS agent</td>      
+          <td > <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+          </span></a></td>
+         <td > <a  (click)="open2(content2)"><span class="icon2"> <i class="fas fa-user-slash" aria-hidden="true"></i>
+          </span></a>
+            </td>         
+         </tr>   
+         
       </tbody>   
     </table>
-    <div class="add"  (click)="open(content)" > Ajouter un agent  <a>  <span class="icon3"> <i class="fas fa-user-plus" aria-hidden="true"></i>
+ 
+    <div  class="add  "  (click)="open(content)" > Ajouter un agent  <a>  <span class="icon3"> <i class="fas fa-user-plus" aria-hidden="true"></i>
     </span>  </a>   </div>
 
     
     <div>
-      <ng-template #content let-modal>
-        <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+      <ng-template #content let-modal >
+        <div class="modal-header" style="background-color:#131010 ;border-bottom-color:#3498db;">
           <h4 class="modal-title" id="modal-basic-title"></h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true" style="color: white;">&times;</span>
@@ -44,9 +86,19 @@
            <div class="box">
             <h1>agent</h1>
             <input type="email" name="email" placeholder="Email">
-            <input type="text"  name="username" id="username" placeholder="Agent nom"  required>
+            <input type="text"  name="username" id="username" placeholder=" nom prenom"  required>
             <input type="text" name="code" id="code" placeholder="Code"  required>
-            <input type="text" name="roles" id="roles" placeholder="Role"  required>
+            <select type="text" 
+            class="form-control" 
+            id="type_avantage" 
+            name="type_avantage" 
+            placeholder="Entre type"
+            required
+           >         
+               <option value="1">admin</option>         
+               <option value="2">CNSS agent</option>
+               <option value="2">CNSS agent paiement</option>
+           </select>     
             <input type="password"name="password" id="password" placeholder="mot de passe" required>
             <button [disabled]="!userForm.form.valid" (click)="modal.close('Save click')"  type="submit" name="" value="Login">Ajouter</button>
 
@@ -57,7 +109,30 @@
 
        
       </ng-template>
+      <ng-template #content2 let-modal>
+        <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+          <h4 class="modal-title" id="modal-basic-title" style="color: white;">Confirmation</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true" style="color: white;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>supprimer l'agent amine ben mohammed!  </p>
+        </div>
+          <div class="modal-footer">
+            
+           
+            <button type="button"  (click)="modal.dismiss('Cross click')" class="btn btn-secondary">Annuler</button>
+            <button (click)="modal.close('Save click')"  type="button" name="" class="btn btn-primary" >supprimer</button>
+
+          </div>
+       
+       
+  
+       
+      </ng-template>
 
     </div>
+   
 </div>
 

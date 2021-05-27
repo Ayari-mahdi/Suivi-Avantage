@@ -1,0 +1,43 @@
+export class piechart{
+    karpercentage:any;
+    civppercentage:any;
+    scvpercentage:any;
+    startuppercentage:any;
+}
+export class secondchart{
+    date1:any;
+    date2:any;
+    date3:any;
+    date4:any;
+    date5:any;
+    date1karama:any;
+    date2karama:any;
+    date3karama:any;
+    date4karama:any;
+    date5karama:any;
+    date1civp:any;
+    date2civp:any;
+    date3civp:any;
+    date4civp:any;
+    date5civp:any;
+    date1scv:any;
+    date2scv:any;
+    date3scv:any;
+    date4scv:any;   
+    date5scv:any;
+    date1startupact:any;
+    date2startupact:any;
+    date3startupact:any;
+    date4startupact:any;
+    date5startupact:any;
+}
+export class thirdchart{
+    karmale:any;
+    karfemale:any;
+    civpmale:any;
+    civpfemale:any;
+    scvmale:any;
+    scvfemale:any;
+    startupactmale:any;
+    startupactfemale:any;
+}

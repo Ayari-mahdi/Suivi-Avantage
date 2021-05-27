@@ -257,10 +257,13 @@ h5{
     text-transform: uppercase;
     font-weight:500px;
     font-family:"OpenSans-Semibold",sans-serif ;
-    text-align: center;
     vertical-align: middle;
-    line-height:75px;   
-   padding-bottom: 55px;
-    margin-left: 25px;
+    line-height: 50px;   
   
   }
+  .inp-salaire{
+width: 150px;
+margin: auto;
+padding:auto;
+  }
+ 

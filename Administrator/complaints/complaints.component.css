@@ -37,35 +37,20 @@
 .btnn:hover{
     background-color: #2ecc71;
 }
-.icon 
-{   font-family:fontAwesome;
-    font-size: 18px;
-    color: #2ecc71;
-    cursor: pointer;
-}
+
 .icon2{
     color:red;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 20px;
 }
-.add{
-    position: relative;
-    float: right;
-    margin-right: 60px;
-}
-.icon3 
-{   font-family:fontAwesome;
-    font-size: 22px;
-    color: dodgerblue;
-    cursor: pointer;
-}
+
 
 .box{
     width: 100%;
-height: 320px;
+
   background: #191919;
   text-align: center;
- 
+  
   border-radius: 10px;
   }
   .box h1{
@@ -97,7 +82,7 @@ height: 320px;
     border:0;
     background: none;
     display: block;
-    margin: 50px auto;
+    margin: 20px auto;
     text-align: center;
     border: 2px solid #2ecc71;
     padding: 14px 40px;
@@ -112,7 +97,4 @@ height: 320px;
   .box button[type = "submit"]:hover{
     background: #2ecc71;
     transform: translateY(-0.10em);
-  } 
-
- 
-  
+  }

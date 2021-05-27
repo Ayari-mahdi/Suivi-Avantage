@@ -3,10 +3,10 @@
   <div class="container">
 <hr width="80%" style="margin-top: 0px;">  
 <div class="charts">
-<a class="btn2" (click)="chart('chart1')">chart1</a>
-<a class="btn2" (click)="chart('chart2')">chart2</a>
-<a class="btn2" (click)="chart('chart3')">chart3</a>
-<a class="btn2" (click)="chart('chart4')">chart4</a>
+<a class="btn2 " (click)="chart('chart1')">chart1</a>
+<a class="btn2 ch2" (click)="chart('chart2')">chart2</a>
+<a class="btn2 ch3" (click)="chart('chart3')">chart3</a>
+<a class="btn2 ch4" (click)="chart('chart4')">chart4</a>
 </div>
 
 <!--LOADING CONTAINER-->
@@ -27,13 +27,16 @@
   </div>
   </div>
 <!--END OF LOADING CONTAINER-->
+
 <div  *ngIf="chartspin" id="chart1"  style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
 ></div>
-<ng-container *ngIf="!chartspin">
+
+ <!---<div >-->
+<ng-container *ngIf="!chartspin ">
 <highcharts-chart  id="chart1"
   [Highcharts]="Highcharts"
   [options]="chartOptions3"
-  style="width: 100%; border-radius: 20px;height: 450px;display: block;margin: 80px auto; "
+  style="width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto; "
 ></highcharts-chart>
 </ng-container>
 
@@ -41,13 +44,15 @@
 
 <div  *ngIf="chartspin" id="chart2"    style="background-color: white;width: 99%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
 ></div>
+
 <ng-container *ngIf="!chartspin">
 <highcharts-chart id="chart2"
   [Highcharts]="Highcharts"
   [options]="chartOptions"
-  style="width: 100%; border-radius: 20px; height: 450px;display: block;margin: 100px auto; "
+  style="width: 99%; border-radius: 20px; height: 450px; display: inline-block;margin: 100px auto;"
 ></highcharts-chart>
 </ng-container>
+<!--</div>-->
 
 <hr width="80%">
 
@@ -57,7 +62,7 @@
 <highcharts-chart id="chart3"
   [Highcharts]="Highcharts"
   [options]="chartOptions2"
-  style="width: 100%;  border-radius: 20px;height: 450px; display: block;margin: 100px auto;"
+  style="width: 99%;  border-radius: 20px;height: 450px; display: inline-block;margin: 100px auto ; "
 ></highcharts-chart>
 </ng-container>
 <hr width="80%">
@@ -67,7 +72,7 @@
 <highcharts-chart  id="chart4"
   [Highcharts]="Highcharts"
   [options]="chartOptions4"
-  style="width: 100%; border-radius: 20px; height: 450px; display: block;margin: 100px auto;"
+  style="width: 100%; border-radius: 20px; height: 450px; display: inline-block;margin: 100px auto; "
 ></highcharts-chart>
 </ng-container>
 <ng-container *ngIf="totop">
@@ -77,6 +82,7 @@
 
 
 
-<hr width="80%" style="margin: 0px;">  
+
 </div>
+<hr width="80%" style="margin-bottom: 0;">
 </div>

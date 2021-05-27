@@ -24,10 +24,49 @@
       <div class="col-md-12" style="margin-top: 20px;">
         <div class="card my-5" style="border-radius: 20px;">
           <div class="card-body" style="min-height: 560px;" >
-            <div class="head"> liste d'anomalies</div>
+            <div class="head animate__animated animate__backInDown "> liste des anomalies</div>
 
-            <div *ngIf="!spin" >  <button style="float: right ;margin:10px auto" class="btn"> Envoyer un email <i style="font-size:25px;padding-left: 5px;" class="fas fa-envelope"></i></button>       
+            <div *ngIf="!spin"  (click)="open(content)">  <button style="float: right ;margin:10px auto" class="btn"> Envoyer un email <i style="font-size:25px;padding-left: 5px;" class="fas fa-envelope"></i></button>       
             </div>  
+
+            <div>
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Envoyer la liste des anomalies par Email  </h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                <div class="modal-body">
+                  <form  #userForm='ngForm' >
+                    <div class="form-group">
+                      <label for="dateOfBirth">Message:</label>
+                      
+                      <div class="input-group">
+                        <input style="height: 200px;"  
+                         [(ngModel)]="emailbody"
+                         name="txt"  id="txt"    #txt="ngModel"
+                         required
+                         class="form-control" 
+                         placeholder=""
+                          >    
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" [disabled]="!userForm.form.valid"   type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Envoyer</button>
+                </div>
+              </ng-template>
+        
+            </div>
+
+
+
+
+
+            <br>
         <table *ngIf="!spin" class="table  table-striped">
           <thead class="thead "  >
             <tr>
@@ -35,7 +74,6 @@
               
               <th  scope="col">#CIN</th>
               <th  scope="col">Nom Prenom</th>             
-              <th scope="col">Bureau</th>
               <th  scope="col">Date Import</th>
               <th  scope="col">Numero d'affiliation</th>
               <th  scope="col">Type Contrat</th>
@@ -48,7 +86,7 @@
                   <ng-container *ngIf="karama.emp_exist === 2">           
                   <td>{{ karama.cin }}</td>
                   <td>{{ karama.nom_prenom }}</td>       
-                  <td>{{ karama.bur_cod }}</td>
+                  
                   <td>{{ karama.date }}</td>
                   <td>{{ karama.numero_affiliation }}</td>
                   <td>{{ karama.type_contrat}}</td>

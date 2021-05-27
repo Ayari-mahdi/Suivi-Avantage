@@ -1,4 +1,33 @@
-
 <app-main-navbar></app-main-navbar>
 <app-navbar></app-navbar>
+<div class="navigation tablenav">  
+  
+  <ul>
+    <li  >
+        <a [routerLink]="['home']"  >
+            <span class="icon"> <i class="fa fa-table" aria-hidden="true"></i> 
+            </span>
+            <span class="title"> LISTING</span>
+          </a>
+    </li>  
+    <li   >
+        <a [routerLink]="['notyetregistered']">
+            <span class="icon"> 
+            </span>             
+            <span class="title"> BENEFICIAIRE</span>
+            <span class="badge ">3</span>
+        </a>
+    </li>    
+    <li >
+        <a [routerLink]="['faulty']"  >
+           <span class="icon">     
+           </span>
+           <span class="title">ANOMALIE</span>
+        </a>
+  </li>  
+</ul>
+</div>
+
+  
+
 <router-outlet></router-outlet>

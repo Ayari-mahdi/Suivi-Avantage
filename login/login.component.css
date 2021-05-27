@@ -1,3 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+.appnamebg{
+  width: 350px;
+  height: 60px;
+  
+  background:darkslategray;
+margin-left: -40px;
+  animation: tri 1s linear forwards;
+}
+@keyframes tri {
+ 
+  0%{
+    transform: translateX(-100%);
+
+   }
+  100%{
+    
+     transform: translateX(0%) skew(-40deg);
+   }
+ 
+ 
+}
+h2{
+left: 8px;
+top:10px;
+transform: translateX(-110%);
+  font-size: 1.8vw;
+ position: absolute;
+ 
+ color: white;
+ z-index: 100;
+ word-spacing: 5px;
+ letter-spacing: 3px;
+   /* Will override color (regardless of order) */
+ /* -webkit-text-stroke-width: 1px;*/
+  /*-webkit-text-stroke-color: black;*/
+ text-transform: uppercase;
+ animation: anim 1s linear forwards ;
+ 
+}
+
+@keyframes anim {
+  0%{
+    transform: translateX(-110%) ;
+
+   }
+  
+  100%{
+    
+     transform: translateX(0%) ; 
+   }
+}
 .flag {
   
   left: 100%;
@@ -17,37 +69,59 @@
 
 
 .logo{
-  position: absolute;
+  position:absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%,-50%);
   height: 200px;
-  
+  animation: lg 2s forwards;
 }
-
+@keyframes lg {
+  0%{
+  
+   }
+  100%{  
+    
+   }
+}
 
 .box{
   width: 400px;
   padding: 30px;
-  position: absolute;
+  position:absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%,-50%);
   background: #191919;
   text-align: center;
-  box-shadow: 2px 5px 8px 4px ;
+  border-radius: 15px;
+  box-shadow: 2px 5px 8px 4px;
+  animation: box 1s forwards;
+}
+@keyframes box {
+  0%{
+    transform: translate(-50%,-20%);
+
+   }
+  100%{
+    
+     transform: translate(-50%,-50%);
+   }
+ 
+ 
 }
 .box h1{
   color: white;
   text-transform: uppercase;
   font-weight: 500;
+  margin-bottom: 30px;
   
 }
 .box input[type = "text"],.box input[type = "password"]{
-  border:0;
+  
   background: none;
   display: block;
-  margin: 30px auto;
+  margin: 20px auto 0 auto;
   text-align: center;
   border: 2px solid #3498db;
   padding: 14px 10px;
@@ -66,10 +140,10 @@
   border:0;
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
   text-align: center;
   border: 2px solid #2ecc71;
-  padding: 14px 40px;
+  padding: 10px 0px 10px 30px;
   outline: none;
   color: white;
   border-radius: 24px;
@@ -81,3 +155,43 @@
 .box button[type = "submit"]:hover{
   background: #2ecc71;
 }
+.box input[type = "text"].ng-invalid.ng-touched,.box input[type = "password"].ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+.box span.ic1 {
+  display: block;
+  position: absolute;
+  right:0%;
+  top:29%;
+  color: blue;
+  animation: 1.3s trans2 ;
+
+
+ animation-fill-mode: forwards;
+}
+@keyframes trans2{
+ 0%{
+  transform:translateX(0%);
+  opacity: 0;
+  
+ }
+100%{
+  color:red;
+   transform: translateX(-90px);
+   opacity: 1;
+ }
+}
+
+.box span.ic2 {
+  display: block;
+  position: absolute;
+  right:0%;
+  top:49%;
+  color: blue;
+  animation: 1.3s trans2 ;
+
+
+ animation-fill-mode: forwards;
+}
+
+

@@ -1,45 +1,56 @@
 
 
     
-<div class="container">
-  <table class="table  table-striped">
+<div class="container" @fade>
+  <table class="table  table-striped" >
     <thead class="thead"  >
       <tr>
         <th scope="col">#ID</th>
-        <th scope="col">ROLES</th>        
+        <th scope="col">ROLES</th>    
+        <th scope="col">interfaces</th>
         <th scope="col" colspan="2"> ACTIONS </th>
       </tr>
     </thead>
     <tbody class="tbody">    
-     <tr >
-        
-        <td></td>         
-        <td></td>  
-        
-
+     <tr >     
+        <td>1</td>         
+        <td style="text-align: left;">admin</td>  
+        <td style="text-align: left;">all</td>
         <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
         </span></a></td>
        <td> <a><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
         </span></a>
           </td>         
-       
-     
-
-          <!--<td>
-               <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
-               <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
-              </div>
-            </td>       -->
+       </tr>   
+       <tr >     
+        <td >2</td>         
+        <td style="text-align: left;">CNSS agent</td>  
+        <td style="text-align: left;" > listing, anomalies, beneficiaires, versioning, charts</td>
+        <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+        </span></a></td>
+       <td> <a><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span></a>
+          </td>         
+       </tr>   
+       <tr >     
+        <td>3</td>         
+        <td style="text-align: left;">CNSS agent paiement</td>  
+        <td  style="text-align: left;">paiement, facutration, charts</td>
+        <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+        </span></a></td>
+       <td> <a (click)="open2(content2)" ><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span></a>
+          </td>         
        </tr>   
     </tbody>   
   </table>
-  <div class="add" (click)="open(content)"> Ajouter un agent  <a>  <span class="icon3"> <i class="far fa-plus-square" aria-hidden="true"></i>
+  <div class="add" (click)="open(content)"> Ajout role &nbsp;  <a>  <span class="icon3"> <i class="far fa-plus-square" aria-hidden="true"></i>
   </span>  </a>   </div>
 
   
   <div>
     <ng-template #content let-modal>
-      <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+      <div class="modal-header" style="background-color:#131010 ;border-bottom-color:#3498db;">
         <h4 class="modal-title" id="modal-basic-title"></h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true" style="color: white;">&times;</span>
@@ -49,8 +60,18 @@
         <form  #userForm='ngForm' >
          <div class="box">
           <h1>Role</h1>
-          <input type="text"  name="username" id="username" placeholder="Role"  required>
-  
+          <input type="text"  name="rolename" id="rolename" placeholder="Role"  required>
+         
+          <ng-multiselect-dropdown  style="border-radius: 20px;"
+          [placeholder]="'interfaces'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
+      
           <button [disabled]="!userForm.form.valid" (click)="modal.close('Save click')"  type="submit" name="" value="Login">Ajouter</button>
 
 
@@ -60,6 +81,27 @@
 
      
     </ng-template>
+    <ng-template #content2 let-modal>
+      <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+        <h4 class="modal-title" id="modal-basic-title" style="color: white;">Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>supprimer le role CNSS agent paiement!  </p>
+      </div>
+        <div class="modal-footer">
+          
+         
+          <button type="button"  (click)="modal.dismiss('Cross click')" class="btn btn-secondary">Annuler</button>
+          <button (click)="modal.close('Save click')"  type="button" name="" class="btn btn-primary" >supprimer</button>
 
+        </div>
+     
+     
+
+     
+    </ng-template>
   </div>
 </div>

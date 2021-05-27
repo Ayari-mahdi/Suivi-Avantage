@@ -13,7 +13,7 @@
    
 }
 .table{
-    width: 70%;
+    width: 90%;
     margin:100px auto 20px auto;
      border: 2px solid black ;
      
@@ -40,24 +40,25 @@
 }
 .icon 
 {   font-family:fontAwesome;
-    font-size: 22px;
+    font-size: 18px;
     color: #2ecc71;
     cursor: pointer;
 }
 .icon3 
 {   font-family:fontAwesome;
-    font-size: 28px;
+    font-size: 22px;
     color: dodgerblue;
     cursor: pointer;
 }
 .icon2{
     color:red;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 17px;
 }
 .add{
     position: relative;
-    left: 72%;
+    float: right;
+    margin-right: 60px;
 }
 .box{
     width: 100%;

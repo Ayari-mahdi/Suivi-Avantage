@@ -3,10 +3,15 @@ import { user } from '../../karama';
 import { KaramaService } from '../../karama.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { fade } from '../../animations';
+
 @Component({
   selector: 'app-cnss-agents',
   templateUrl: './cnss-agents.component.html',
   styleUrls: ['./cnss-agents.component.css'],
+  animations:[
+    fade
+  ]
  
 })
 export class CNSSAgentsComponent implements OnInit {
@@ -15,7 +20,7 @@ user:user;
 spinregister: boolean;
   closeResult='';
   constructor(
-    
+    private modalService2 : NgbModal,
     private modalService : NgbModal,
     private svkarama:KaramaService,
   
@@ -41,7 +46,18 @@ spinregister: boolean;
       return `with: ${reason}`;
     }
   }
+///////
+open2(content) {
+  this.modalService2.open(content, {ariaLabelledBy: 'modal-basic-title',centered:true, scrollable: true }).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+   
 
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+ }
+
+////
   ngOnInit(): void {
    
   }

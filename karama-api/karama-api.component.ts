@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { aneti_avg, brcod, Dataset, karama } from '../karama';
 import { KaramaService } from '../karama.service';
+import { loadingspinners } from '../loadings';
 
 @Component({
   selector: 'app-karama-api',
@@ -10,6 +11,10 @@ import { KaramaService } from '../karama.service';
   styleUrls: ['./karama-api.component.css']
 })
 export class KaramaApiComponent implements OnInit {
+loadings=loadingspinners.spinner1;
+
+  //horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  //verticalPosition: MatSnackBarVerticalPosition = 'top';
   totop=false;
   karama_list : Dataset[];
   aneti_avg:aneti_avg[];
@@ -28,7 +33,7 @@ export class KaramaApiComponent implements OnInit {
   ) { this.data= new Dataset; 
     document.addEventListener('scroll',()=>{
       if(window.scrollY>350){
-     console.log("TEST");
+     
      this.totop=true
       }
       else{
@@ -45,8 +50,11 @@ export class KaramaApiComponent implements OnInit {
   //   this.router.navigate(['login']);
  //  }
  //  else {
-    
-    this.spin=true;
+
+console.log(loadingspinners.spinner1)
+loadingspinners.spinner1= true;
+console.log(loadingspinners.spinner1)
+      this.spin=true;
    
     
          console.log(this.svkarama.isUserLoggedIn());
@@ -97,30 +105,11 @@ export class KaramaApiComponent implements OnInit {
 }
 
 
-  update(numero_affiliation:string,cin:string){   
-    this.spin=true 
-    console.log(numero_affiliation);
-    console.log(cin);
-    this.svkarama.update(numero_affiliation ,cin).subscribe( 
-    (res)   => { this.spin=false;
-                this._snackBar.open('updated ','dismiss' ,{
-                duration: 10000,panelClass:'snackbar'
-                  });
-                console.log(res);
-                 
-             },
-    (error) => { this.spin=false;
-                 this._snackBar.open('update denied','dismiss' ,{
-                 duration: 10000,panelClass:'red-snackbar'
-                 });
-               console.log(error);
-             }
-    );
-  }
+ 
   
 //search
 onSubmit(){
-
+  
     this.spin=true;
     console.log(this.data)
     // this.router.navigate(['/users',input.value]);   //  

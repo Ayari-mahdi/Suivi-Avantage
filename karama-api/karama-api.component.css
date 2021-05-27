@@ -1,16 +1,16 @@
-.container{
-  margin-top: 20px;
-}
+
+
 div.head{
-  font-size: 25px;
-  text-transform: uppercase;
-  font-weight:500px;
-  font-family:"OpenSans-Semibold",sans-serif ;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 40px;   
-  margin-left: 30px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight:500px;
+    font-family:"OpenSans-Semibold",sans-serif ;
+    vertical-align: middle;
+    line-height: 50px;   
+    
+  
 }
+
 .thead{
   border: 2px solid black ;
   /*background-color: #008B8B;*/
@@ -70,6 +70,51 @@ display: block;
     
 }
 
+.ticker {
+  display: flex;
+  flex-wrap: wrap;
+  
+  height: 5px;
+  margin: 5px auto;
+  
+}
+.news {
+  width: 85%;
+  background: dodgerblue;
+  padding: 0 2%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.title {
+  width: 15%;
+  text-align: center;
+  background: rgb(22, 121, 219);
+  position: relative;
+  border-top-left-radius: 10px;
+  color:white;
+  border-bottom-left-radius:10px;
+}
+.title:after {
+  position: absolute;
+  content: "";
+  right: -28%;
+  border-left: 28px solid rgb(22, 121, 219);
+  border-top: 16px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom:16px solid transparent;
+  top: 0;
+}
+.title h5 {
+  font-size: 15px;
+  margin: 3% 0;
+}
+.news marquee {
+  font-size: 15px;
+  color:white;
+}
+p{
+  margin: 5px 0 5px 0;
+}
 
   
 

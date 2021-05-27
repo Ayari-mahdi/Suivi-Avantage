@@ -1,7 +1,4 @@
-.container
-{
-  margin-top: 20px;
-}
+
 .thead{
   border: 2px solid black ;
   background-color: #008B8B;
@@ -65,10 +62,8 @@ div.head{
   text-transform: uppercase;
   font-weight:500px;
   font-family:"OpenSans-Semibold",sans-serif ;
-  text-align: center;
   vertical-align: middle;
-  line-height: 120px;   
-  margin-top: -20px;
-  margin-left: 25px;
+  line-height: 50px;   
+  
 
 }

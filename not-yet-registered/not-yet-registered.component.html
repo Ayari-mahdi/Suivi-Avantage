@@ -1,7 +1,7 @@
 <div style="background-color: 	#F5F5F5;min-height: 695px" >
 <div id="top"></div>
   <div class="container">
-
+        
 
     <!--LOADING CONTAINER-->
       <div *ngIf="spin" style="margin-top: 40px;" class="container loader-container1" >
@@ -23,38 +23,39 @@
       <div class="col-md-12" style="margin-top: 20px;">
         <div class="card my-5" style="border-radius: 20px;">
           <div class="card-body" style="min-height: 560px;">
-            <div class="head"> bénéficiaires non immatriculé</div>
-          <div *ngIf="!spin" >  <button style="float: right ;margin:10px auto" class="btn"> mettre à jour</button>       
-            
-          </div>  
+            <div class="head animate__animated animate__backInDown"> bénéficiaires non immatriculé</div>
+             <div *ngIf="!spin" >  
+              <button  (onclick)="updateall()"  style="float: right ;margin:10px auto" class="btn">
+               mettre la liste à jour
+              </button>        
+             </div>  
          
           <table *ngIf="!spin" class="table  table-striped">
                 <thead class="thead "  >
                   <tr>
-                    
-                    
-                    <th  scope="col">#CIN</th>
-                    <th  scope="col">Nom Prenom</th>             
+                    <th scope="col">#CIN</th>
+                    <th scope="col">Nom Prenom</th>             
                     <th scope="col">Bureau</th>
-                    <th  scope="col">Date Import</th>
-                    <th  scope="col">Numero d'affiliation</th>
-                    <th  scope="col">Type Contrat</th>
-                    <th  scope="col">Assuree Existant</th>        
-                  <!--  <th scope="col">Action </th>      -->
+                    <th scope="col">Date Import</th>
+                    <th scope="col">Numero d'affiliation</th>
+                    <th scope="col">Type Contrat</th>
+                    <th scope="col">Assuree Existant</th>        
+                    <th scope="col">Action </th>      
                   </tr>
                 </thead>
                 <tbody>     
-                    <tr  *ngFor="let karama  of karama_list">
-                      
-                        
+                  <tr  *ngFor="let karama  of karama_list">                                        
                     <td>{{ karama.cin }}</td>
                     <td>{{ karama.nom_prenom }}</td>       
                     <td>{{ karama.bur_cod }}</td>
                     <td>{{ karama.date }}</td>
                     <td>{{ karama.numero_affiliation }}</td>
                     <td>{{ karama.type_contrat}}</td>                            
-                      <td><span class="cross"> &#10060; </span> </td>
-                   </tr>   
+                    <td><span class="cross"> &#10060; </span> </td>
+                    <td> <button (click)="update(karama.numero_affiliation,karama.cin,karama.type_contrat)" 
+                           class="btn"> mettre à jour</button>
+                    </td>
+                  </tr>   
                 </tbody>   
               </table>
     

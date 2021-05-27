@@ -1,7 +1,8 @@
+<div style="background-color: 	#F5F5F5;min-height:92.5vh;" >
 <div id="top"></div>
 <div class="container">
 <!--LOADING CONTAINER-->
-<div *ngIf="paymentspin" style="margin-top: -30px;" class="container loader-container1" >
+<!--<div *ngIf="paymentspin" style="margin-top: -30px;" class="container loader-container1" >
   <div  class="lspinner">
     
   </div> 
@@ -13,16 +14,41 @@
   </div> 
   <div  class="container loader-container" >
   </div>
-  </div>
+  </div>-->
 <!--END OF LOADING CONTAINER-->
-<div *ngIf="paymentspin" class="card" style="border-radius:20px;margin-top: 70px;">
+<!--<div *ngIf="paymentspin" class="card my-5" style="border-radius:20px;margin-top: 70px;">
   <div class="card-body" style="min-height: 560px;">
-    <div class="head" > paiement</div>
+    <div class="head  animate__animated animate__backInDown" > paiement</div>
+  </div>
+</div>-->
+ <!--Spinner-->
+ <div class="row">
+  <div class="col-md-12" style="margin-top: 30px;">
+ <div class="card my-5  " *ngIf="paymentspin"
+ style="border-radius:20px;background-color:#0000004A;">
+  <div class="card-body" style="min-height: 560px;
+ ;border-radius: 20px;        
+  z-index: 99; 
+  ">
+    <div class="card-title text-center pt-3 head animate__animated animate__backInDown" >paiement</div>
+  <div style="display: flex; align-items: center;
+  justify-content: center; ">
+   <div   class="lspinner">
+
+  </div> 
+    <span style="text-align: center;" class="load">Loading...</span>
+    <div style="margin-top: 220px;" class="loading-dots" >
+      <div class="bounce"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
   </div>
 </div>
-
-<div  *ngIf="!paymentspin" style="margin-top:70px;" >
-
+  </div>
+ </div>
+<!--spinnerEnd-->
+<div  *ngIf="!paymentspin" style="margin-top:70px;" class="animate__animated animate__backInDown animate__delay-0.5s  "  >
         <form class="box1"  (ngSubmit)="onSubmit()" #userForm="ngForm" >
      <div style="font-size:26px;color: dodgerblue;margin-bottom: 20px;">LE {{myDate | date: 'shortDate' }}  </div>  
             <h2>Employeur</h2>
@@ -57,15 +83,16 @@
            </ng-container>
             </select> 
 
-            <button  [disabled]="!userForm.form.valid" type="submit" name="" value="Recherche">Recherche</button>
+            <button [disabled]="!userForm.form.valid" type="submit" name="" value="Recherche">Recherche</button>
 
 
         </form>
 </div>
 
-<div  *ngIf="!paymentspin" >
+<div  *ngIf="!paymentspin"  class="animate__animated animate__backInDown animate__delay-0.5s  ">
     <div class="col-md-12">
       <hr>
+      
     <form class="box2" >
         <h2>Salariés</h2>
         <table class="table table-striped">
@@ -75,20 +102,38 @@
                 <th scope="col">NOM PRENOM</th>
                 <th scope="col">TYPE DE CONTRAT</th>       
                  
-                <th scope="col"> ACTIONs </th>
+                <th scope="col"> salaire </th>
               </tr>
             </thead>
             <tbody>    
+          
+       
+         <!--     <tr  >            
+                <td>  </td>         
+                <td>  </td>               
+                <td></td>                 
+                <td > <input #monInput (keyup.enter)="hilo(monInput.value)" (blur)="hilo(monInput.value)" maxlength="4" size="4" minlength="4"  class="form-control inp-salaire"    
+                  type="text" name="sal" id="sal" placeholder="salaire"   >
+
+                </td>   
+
+                
+               </tr> -->
+      
+    
+      
+       
+     
              <tr  *ngFor="let list of dossavgass">              
                 <td> {{list.ass_mat}} </td>         
                 <td> {{list.daa_nom}} {{list.daa_prenom}} </td>               
-                <td>{{newdata.type_avantage}}</td>                 
+                <td>{{newdata.type_avantage}}SCV</td>                 
                 <td> <button  class="btn btn-success" (click)="open(content,list)" > ajout salaire</button>
                 </td>   
 
                 <ng-template #content let-modal>
                   <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">ajout salaire trimestriel de {{list.daa_nom}}  {{list.daa_prenom}}</h4>
+                    <h4 class="modal-title" id="modal-basic-title">ajout salaire trimestriel de {{list.daa_nom}} {{list.daa_prenom}} </h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -105,20 +150,16 @@
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" [disabled]="!userForm.form.valid"   type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                    <button type="button" [disabled]="!userForm.form.valid"   type="submit" class="btn btn-outline-dark"
+                     (click)="modal.close('Save click')">Save</button>
                   </div>
                 </ng-template>
-                  <!--<td>
-                       <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
-                       <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
-                      </div>
-                    </td>       -->
                </tr>        
             </tbody>   
           </table>
           <div style="margin-bottom :100px;">
             <button style="margin:20px;float:right; " class="btnbox2"
-            type="submit" (click)="calculate()"   class="btn btn-success btnbox2">Salaire Total 
+            type="submit" (click)="calculate()"   class="btn btn-success btnbox2">Calcul Total 
             </button>
           </div>
     </form>
@@ -126,41 +167,43 @@
 </div>
 <!-- MODAL -->
 
-<hr>
+<br>
 <!-- end of modal-->
 
  
 
-<div  *ngIf="!paymentspin" style="border-top: 2px solid black;margin-bottom: 35px;"></div>
+<div  *ngIf="!paymentspin" style="border-top: 2px solid black;margin-bottom: 35px;">
 
-<div  *ngIf="!paymentspin" style="margin-bottom: 150px;margin-top: 0px;"  >
+</div>
+
+<div  *ngIf="!paymentspin" style="margin-bottom: 0px;margin-top: 0px;" class="animate__animated animate__backInDown animate__delay-0.5s  " >
   <form class="box" >
       <h2>paiement</h2>
-      <input style="border-color:#3498db;" class="input1" readonly type="text"   name="username" id="username" placeholder="SalDéclarés"  required>
-      <input  style="border-color:#3498db;" class="input1" readonly type="text"  name="password" id="password" placeholder="Taux" required>
-      <input style="border-color: red;" class="input1" readonly type="text"  name="password1" id="password1" placeholder="Montants à Payer"  required>
+      <input style="border-color:#3498db;" class="input1" readonly type="text"  value="{{x1}}" name="username" id="username" placeholder="SalDéclarés"  required>
+      <input  style="border-color:#3498db;" class="input1" readonly type="text" value="{{x2}}" name="password" id="password" placeholder="Taux" required>
+      <input style="border-color: red;"  class="input1" readonly type="text" value="{{x3}}" name="password1" id="password1" placeholder="Montants à Payer"  required>
     
 
       <h5>Pénalités </h5>
       <div class="boxed"> 
     
-      <input class="input3"  type="text"  name="password2" id="password2" placeholder="nombre de jour"  required>
-      <input class="input3"  readonly type="text"  name="password2" id="password2" placeholder="Montant"  required>
+      <input class="input3"  type="text"  name="nbjour" id="nbjour" placeholder="nombre de jour"  required>
+      <input class="input3"  readonly type="text" value="{{totop}}" name="montantp" id="montantp" placeholder="Montant"  required>
   </div>
   <hr style="height: 0.5px;background-color: black;">
-    <input style="border-width:2px;border-color: red;"  class="input2" readonly type="text"  name="password3" id="password3" placeholder="Total à Payer"  required>
+    <input style="border-width:2px;border-color: red;"  class="input2" value="{{x3}}" readonly type="text"  name="password3" id="password3" placeholder="Total à Payer"  required>
     <button    type="submit" name="" value="Recherche">Paiement ?</button>
 
   </form>
     
 
 </div>
-<div>
 
-</div>
+
 <ng-container *ngIf="totop">
 
 <a class="backtotop" (click)="backtotop()"><i style="padding-left: 10px;" class="fa fa-arrow-up" aria-hidden="true"></i>
 </a>
 </ng-container>
-</div>  
+</div>
+</div>

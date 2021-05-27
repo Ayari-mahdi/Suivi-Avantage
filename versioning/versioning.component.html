@@ -1,9 +1,10 @@
-<div style="background-color: 	#F5F5F5;min-height: 695px;margin-top: -20px;" >
+
+ <div style="background-color: 	#F5F5F5;min-height: 92.5vh;" >
 <div id="top"></div>
 <div class="container">
 
   <!-- LOADER SPINNER-->
-  <div style="margin-top: 40px;" *ngIf="spin_versioning || spin_data_importation"  class="container loader-container1" >
+  <!--<div style="margin-top: 40px;" *ngIf="spin_versioning || spin_data_importation"  class="container loader-container1" >
     <div   class="lspinner">
     
     </div> 
@@ -16,16 +17,56 @@
     <div   class="container loader-container">
   
     </div>
-    </div>
+    </div>-->
     <!-- END LOADER SPINNER-->
 
+
+    
+    
    
-    <div class="row" style="padding-top: 20px;">
+<!---->
+   <!-- <div class="row" style="padding-top: 20px;">
       <div class="col-md-12">
       
-        <div *ngIf="spin_versioning" class="card my-5" style="border-radius:20px;">
-          <div class="card-body" style="min-height: 560px;">
-            <div class="head" > Versioning</div>
+        <div class="card my-5 " style="border-radius:20px; ">
+          <div class="card-body" style="min-height: 560px;  display: flex;">
+            <div   class="lspinner">
+    
+            </div> 
+            <span class="load">Loading...</span>
+            <div class="loading-dots" >
+              <div class="bounce"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+          </div>
+        </div>
+</div></div>-->
+
+<!---->
+   
+    <div class="row" >
+      <div class="col-md-12" style="margin-top: 30px;">
+      
+        <div class="card my-5  " *ngIf="spin_versioning || spin_data_importation"
+         style="border-radius:20px;background-color:#0000004A;">
+          <div class="card-body" style="min-height: 560px;
+         ;border-radius: 20px;        
+          z-index: 99; 
+          ">
+            <div  class="card-title text-center pt-3 head animate__animated animate__backInDown" > Versioning</div>
+          <div style="display: flex; align-items: center;
+          justify-content: center; ">
+           <div   class="lspinner">
+    
+          </div> 
+            <span style="text-align: center;" class="load">Loading...</span>
+            <div style="margin-top: 220px;" class="loading-dots" >
+              <div class="bounce"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+          </div>
           </div>
         </div>
 
@@ -48,8 +89,8 @@
                required
 
              >    
-                  <option value="1">avantage</option>
-                  <option value="2">beneficiaire</option>
+                  <option value="1">Avantage</option>
+                  <option value="2">Employeur</option>
               </select>     </li>    
             </ul>    
             <hr style="height: 2px;background-color: white;">  

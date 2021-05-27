@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" @fade>
   <table class="table  table-striped">
     <thead class="thead"  >
       <tr>
@@ -11,32 +11,61 @@
     <tbody class="tbody">    
      <tr  >
         
-        <td></td>         
-        <td></td>  
-        <td></td>      
+        <td>87564752KR</td>         
+        <td>KARAMA</td>  
+        <td>Contrat dignité karama</td>      
 
         <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
         </span></a></td>
        <td> <a><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
         </span></a>
           </td>         
-       
-     
+       </tr>  
+       <tr  >
+        
+        <td>87564752CIVP</td>         
+        <td>CIVP</td>  
+        <td>Contrat d’Initiation à la Vie Professionnelle</td>      
 
-          <!--<td>
-               <div *ngIf="histotable.boo_creation_dosser !== 1 "> 
-               <button disabled class="btn btn-success"> créer les dossiers d'avantage </button>                                   
-              </div>
-            </td>       -->
-       </tr>   
+        <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+        </span></a></td>
+       <td> <a><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span></a>
+          </td>         
+       </tr>  
+       <tr  >
+        
+        <td>87564752SCV</td>         
+        <td>SCV</td>  
+        <td>Service Civil Volontaire</td>      
+
+        <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+        </span></a></td>
+       <td> <a><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span></a>
+          </td>         
+       </tr>  
+       <tr  >
+        
+        <td>87564752ACT</td>         
+        <td>STARTUP-ACT</td>  
+        <td>Startup-act</td>      
+
+        <td> <a><span class="icon"><i class="fas fa-edit" aria-hidden="true"></i>
+        </span></a></td>
+       <td> <a (click)="open2(content2)"  ><span class="icon2"> <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </span></a>
+          </td>         
+       </tr>  
+
     </tbody>   
   </table>
-  <div class="add" (click)="open(content)" > Ajouter un agent  <a>  <span class="icon3" > <i   class="far fa-plus-square" aria-hidden="true"></i>
+  <div class="add" (click)="open(content)" > Ajout avantage &nbsp;  <a>  <span class="icon3" > <i   class="far fa-plus-square" aria-hidden="true"></i>
   </span>  </a>   </div>
 
   <div>
     <ng-template #content let-modal>
-      <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+      <div class="modal-header" style="background-color:#131010 ;border-bottom-color:#3498db;">
         <h4 class="modal-title" id="modal-basic-title"></h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true" style="color: white;">&times;</span>
@@ -58,6 +87,27 @@
 
      
     </ng-template>
+    <ng-template #content2 let-modal>
+      <div class="modal-header" style="background-color:#191919 ;border-bottom-color:#3498db;">
+        <h4 class="modal-title" id="modal-basic-title" style="color: white;">Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>supprimer l'avantage STARTUP-ACT!  </p>
+      </div>
+        <div class="modal-footer">
+          
+         
+          <button type="button"  (click)="modal.dismiss('Cross click')" class="btn btn-secondary">Annuler</button>
+          <button (click)="modal.close('Save click')"  type="button" name="" class="btn btn-primary" >supprimer</button>
 
+        </div>
+     
+     
+
+     
+    </ng-template>
   </div>
 </div>

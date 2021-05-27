@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { aneti_avg, doss_avgass, employerdata, payresult } from '../karama';
 import { KaramaService } from '../karama.service';
+import { MainNavbarComponent } from '../main-navbar/main-navbar.component';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -21,6 +22,9 @@ totop=false;
 salaire:string;
 paymentspin= false;
 aneti_avg:aneti_avg[];
+x1:number;
+x2:string;
+x3:number;
 dossavgass:doss_avgass[];
 payres:payresult;
 newdata:employerdata;
@@ -35,7 +39,7 @@ closeResult='';
     ) {this.newdata = new employerdata;
       document.addEventListener('scroll',()=>{
         if(window.scrollY>250){
-       console.log("TEST");
+   
        this.totop=true
         }
         else{
@@ -54,17 +58,19 @@ closeResult='';
         (dataa)=>{
           this._snackBar.open('salaire added successfully','dismiss' ,{
             duration: 10000,panelClass:'snackbar'
-        }
+       }
       );
       console.log('saved successfully',this.salaire,list);
         },
         (error)=>{
-          console.log(error);
+         console.log(error);
           this._snackBar.open('check your connection please','dismiss' ,{
             duration: 10000,panelClass:'red-snackbar'
         }
       );
-    })
+
+    }
+    )
 
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -83,8 +89,7 @@ closeResult='';
 
   ngOnInit(): void {
    
-
-  
+    
     this.paymentspin=true;
     this.svkarama.getaneti_avn().subscribe(
       (data) =>{  
@@ -125,6 +130,9 @@ closeResult='';
     (dataaa)=>{ 
               this.payres=dataaa;
               console.log(this.payres);
+              this.x1=this.payres.total;
+              this.x2=this.payres.taux+"%";
+              this.x3=this.payres.finalsum;
     },
     (error)=>{
               console.log(error);
@@ -134,12 +142,17 @@ closeResult='';
 
     )
   }
+  hilo(value:string){
+    if (value.length===1)
+    {
+    console.log(value)}
+  }
   backtotop(){
     let top=document.getElementById('top');
    
     top.scrollIntoView({behavior:'smooth',block:'center'});
   }
 
-
+ 
 
 }

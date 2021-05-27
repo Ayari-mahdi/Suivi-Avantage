@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Dataset } from '../karama';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { KaramaService } from '../karama.service';
 
 @Component({
@@ -14,39 +15,82 @@ export class FaultyDataComponent implements OnInit {
   karama_list : Dataset[];
   tokken:"";
   spin=false;
+  closeResult='';
   search_icon=false;
+  emailbody:string;
   
   constructor(
+    private modalService : NgbModal,
     private _snackBar: MatSnackBar,
     private svkarama:KaramaService,
-    
-    private router : Router,
-  )
+            )
+
    { document.addEventListener('scroll',()=>{
     if(window.scrollY>350){
-   console.log("TEST");
    this.totop=true
     }
     else{
       this.totop=false
     }
-  }) }
+      }) 
+  }
 
-  ngOnInit(): void {
+
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',centered:true, scrollable: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      this._snackBar.open('email sent successfully','dismiss' ,{
+                duration: 10000,panelClass:'snackbar'
+          }
+         );
+      this.svkarama.sendemail(this.emailbody).subscribe(
+        (dataa)=>{
+          this._snackBar.open('email sent successfully','dismiss' ,{
+            duration: 10000,panelClass:'snackbar'
+      }
+      );
+  
+        },
+        (error)=>{
+          this._snackBar.open('check your connection please','dismiss' ,{
+            duration: 10000,panelClass:'red-snackbar'
+        }
+      );
+
+    }
+   )
+
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+   }
+   private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } 
+    else {
+      return `with: ${reason}`;
+    }
+  }
+ 
+
+ngOnInit(): void {
     this.spin=true;
    
     
     console.log(this.svkarama.isUserLoggedIn());
    this.svkarama.getfaultylist().subscribe(
-       (karamaa_list) =>{  
+       (t) =>{  
                    this.search_icon=true;
                    this.spin=false;
-
-                   this.karama_list = karamaa_list  ;
+                   this.karama_list = t  ;
                    this._snackBar.open('done ','dismiss' ,{
                      duration: 1200,panelClass:'snackbar'
                        });
-                   console.log(this.karama_list);
+                  
                   },
        (error)        => { 
                    this.search_icon=false;
@@ -54,7 +98,7 @@ export class FaultyDataComponent implements OnInit {
                    this._snackBar.open('access denied , check your connection','dismiss' ,{
                    duration: 10000,panelClass:'red-snackbar'
                     });
-                   console.log(error);
+                  
                    }
               );
 

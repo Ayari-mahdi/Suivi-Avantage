@@ -24,44 +24,39 @@ spin_data_importation:boolean ;
     public loaderService: LoaderService
   ) { document.addEventListener('scroll',()=>{
     if(window.scrollY>350){
-   console.log("TEST");
+   
    this.totop=true
     }
     else{
       this.totop=false
     }
-  })}
+    })
+   }
 
-  onOptionsSelected(value)
+onOptionsSelected(value)
   {
     if(value==='1')
     {
       this.visible=true
-      console.log(this.visible)
     }
     if(value==='2')
     {
-      this.visible=false
-      console.log(this.visible)
+      this.visible=false 
     }
   }
 //************** */
   ngOnInit(): void {
-    console.log(this.spin_data_importation);
     this.spin_versioning=true;
-    console.log(this.spin_versioning)
    // console.log(this.loaderService.isLoading);
     this.svkarama.getaneti_avn().subscribe(
       (data) =>{  
                   this.spin_versioning =false;
-                  console.log(this.spin_versioning)
                   this.aneti_avg=data;
                 },
       (error)=>{  
                   this.spin_versioning=false;
-                  console.log(this.spin_versioning)
-                  console.log(error)
-                  this._snackBar.open('access to api "type of advantages failed", check your connection please','dismiss' ,{
+  
+                  this._snackBar.open('access failed, check your connection please','dismiss' ,{
                   duration: 10000,panelClass:'red-snackbar'
                 });      
       } 
@@ -69,8 +64,8 @@ spin_data_importation:boolean ;
     
     this.svkarama.gethistorique().subscribe(
       (data2)=> {this.historique_table = data2;
-      console.log(this.historique_table)},
-      (error2)=>{this._snackBar.open('access to api failed, check your connection please','dismiss' ,{
+      },
+      (error2)=>{this._snackBar.open('access failed, check your connection please','dismiss' ,{
         duration: 10000,panelClass:'red-snackbar'
       });  
 
@@ -90,15 +85,15 @@ onSubmit()
                   this._snackBar.open('data importation done!','dismiss' ,{
                   duration: 2000,panelClass:'snackbar'
                   });
-                    console.log(dataa);                               
+                                            
                     },
     (error) => { 
                  this.spin_data_importation=false;
                  this._snackBar.open('data importation failed','dismiss' ,{
                  duration: 10000,panelClass:'red-snackbar'
                  });
-                console.log(error);
-                //this.ngOnInit();
+            
+              
                   });  
 }
 backtotop(){

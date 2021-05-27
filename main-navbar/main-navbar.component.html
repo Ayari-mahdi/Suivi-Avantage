@@ -1,20 +1,98 @@
 
-<body>
-    <nav>
-      <a [routerLink]="['home']" routerLinkActive="active" >listing</a>   
-      <a [routerLink]="['versioning']" routerLinkActive="active" >versioning</a>
-      <a [routerLink]="['payment']" routerLinkActive="active" >paiement</a>
-
-      <a [routerLink]="['facturation']" routerLinkActive="active" >facturation</a>
-      <a [routerLink]="['charts']" routerLinkActive="active"> <i style="font-size: 15px;margin-left: 5px;color:dodgerblue;" class="far fa-chart-bar"></i> charts </a>  
-      <a  href="">date : {{myDate | date: 'shortDate' }}  </a>
-      <a  [routerLink]="['admin/agents']" routerLinkActive="active">oussema | {{user}}66324 &nbsp; &nbsp;
+<body >
+    <nav ngbDropdown class="dropdown ">
       
+
+      <a [routerLink]="['listing']" [routerLinkActive]="['active']" >listing</a>   
+      <a [routerLink]="['versioning']" [routerLinkActive]="['active']" >versioning</a>
+      <a [routerLink]="['payment']" [routerLinkActive]="['active']" >paiement</a>
+
+      <a [routerLink]="['facturation']" [routerLinkActive]="['active']">facturation</a>
+      <a [routerLink]="['charts']" [routerLinkActive]="['active']"> <i style="font-size: 15px;margin-left: 5px;color:dodgerblue;" class="far fa-chart-bar"></i> charts </a>  
+      <a >date : {{myDate | date: 'shortDate' }}  </a>
+      <a [routerLinkActive]="['active']" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" ngbDropdownToggle >oussema | {{user}}66324 &nbsp; &nbsp;
 
         <i class="fa fa-user" aria-hidden="true"></i>  
       </a>
+      <div class="dropdwn"  ngbDropdownMenu aria-labelledby="dropdownMenuButton">
+        <a    [routerLink]="['admin/agents']"   style="width: 180px;border-radius: 20px;" ngbDropdownItem class="dropdown-item" href="#"> 
+          <span class="icon"><i class="fas fa-cog" aria-hidden="true"></i>
+        </span>
+        <span style="margin-left:20px;" class="title">settings</span>
+        </a>
+        <hr style="margin: 5px;background-color: red;">
+        <a  style="width: 180px;border-radius: 20px;" ngbDropdownItem class="dropdown-item" href="#">
+          <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i>
+          </span>
+          <span style="margin-left:20px;" class="title"> sign out</span>
+         
+        </a>
+      </div>
 
       <div class="animation start-home"></div>
     </nav>
 </body>
- 
+<div class="navigation c1 ">  
+  <ul>
+      <li>
+          <a   [routerLink]="['admin/agents']" >
+              <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i>
+              </span>
+              <span class="title"> settings</span>
+          </a>
+      </li>  
+      <li>
+          <a   [routerLink]="['logout']" >
+              <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i>
+              </span>
+              <span class="title"> sign out</span>
+          </a>
+      </li>          
+  </ul>
+  <div class="animation start-home"></div>
+</div>
+<div class="navigation tablenav">  
+  
+  <ul>
+    <li  >
+        <a [routerLink]="['listing']"  >
+            <span class="icon"> <i class="fa fa-table" aria-hidden="true"></i> 
+            </span>
+            <span class="title"> LISTING</span>
+          </a>
+    </li>  
+    <li   >
+        <a [routerLink]="['notyetregistered']">
+            <span class="icon"> 
+            </span>             
+            <span class="title"> BENEFICIAIRE</span>
+            <span class="badge ">3</span>
+        </a>
+    </li>    
+    <li >
+        <a [routerLink]="['faulty']"  >
+           <span class="icon">     
+           </span>
+           <span class="title">ANOMALIE</span>
+        </a>
+  </li>  
+</ul>
+</div>
+
+
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="bottomscrollbar">
+  <div class="container" >
+  <div class="ticker animate__animated animate__lightSpeedInLeft">
+    <div class="titlenew"><h5>creation des dossiers</h5></div>
+    <div class="news">
+      <marquee>
+        <p>
+       creation des dossiers avantage pour l'avantage CIVP encours!
+      </p>
+      </marquee>
+    </div>
+  </div>
+  </div>
+  </ng-container>

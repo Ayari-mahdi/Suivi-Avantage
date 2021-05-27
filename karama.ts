@@ -1,7 +1,3 @@
-
-
-
-
 export class user{
     id:number;
     username:string;
@@ -139,6 +135,7 @@ export class ws_aneti_historique
     type_contrat:string;
     import_local:string;
     date_import:string;
+    number:number;
     creation_dossier:number;
     boo_creation_dossier:number;
     constructor(agent:number,type_contrat:string,import_local:string,date_import:string,creation_dosser:number,boo_creation_dosser:number)

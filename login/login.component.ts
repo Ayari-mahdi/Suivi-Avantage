@@ -23,7 +23,7 @@ spinlogin= false;
   ngOnInit(): void {
   }
   onSubmit(){
-
+    this.router.navigate(['home/listing'])
    
     // this.router.navigate(['/users',input.value]);   //  
     console.log(this.user);
